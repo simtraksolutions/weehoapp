@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="editTextText" type="id" />
+    <item name="text_number" type="id" />
+    <item name="navHostFragment" type="id" />
+    <item name="MainActivity4" type="id" />
+</resources>

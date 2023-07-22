@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".MainActivity4">
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="@dimen/_235sdp"
+        android:layout_height="@dimen/_225sdp"
+        android:layout_marginTop="@dimen/_4sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/mandeepsingh" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView9"
+        android:layout_width="@dimen/_289sdp"
+        android:layout_height="@dimen/_375sdp"
+        android:background="@color/white"
+        android:layout_marginTop="@dimen/_40sdp"
+        android:layout_marginBottom="@dimen/_50sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView9"
+        tools:ignore="MissingConstraints">
+
+        <ScrollView
+            android:layout_width="@dimen/_318sdp"
+            android:layout_height="match_parent"
+
+            android:background="@color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+
+                    android:text="Mandeep singh"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_20ssp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="@dimen/_268sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:lineSpacingExtra="@dimen/_6sdp"
+                    android:padding="@dimen/_8sdp"
+
+                    android:text="About Mandeep Singh \nMandeep Singh is an Indian Musical Artist, Singer, Music Producer and Composer.The entertainment industry of our country has always been dominated by Punjabis. Whether it is in music, acting, or any other profession, they are all over it. Mandeep Singh a young man from Sirsa, Haryana is the upcoming actor who is continuing the legacy of Punjabis. He is a 23-year-old super talented actor who is all set to rock in the Punjabi Movies and web series."
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:text="A Great Singer"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Applaud by Veteran actors"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView16"
+                    android:layout_width="@dimen/_268sdp"
+                    android:layout_height="@dimen/_290sdp"
+                    android:layout_marginLeft="@dimen/_15sdp"
+                    android:lineSpacingExtra="@dimen/_6sdp"
+                    android:padding="@dimen/_8sdp"
+                    android:text="Although Mandeep is just 23 years old he has made everyone crazy with his talent and good looks. He is not only known for his good looks but also for his amazing talent as an actor. There are many veteran actors in the industry who have to applaud his talent and looks. Many also consider him to be the next big star of the Punjabi Cinema. Even though he is so young he has made quite a big fan following for himself which is pretty remarkable for a young actor like him. This young actor has also acted in an unreleased film named “The Angrej 2” in which he was really appreciated for his performance."
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/textView17"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Magnificient acting skills"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView18"
+                    android:layout_width="@dimen/_268sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:lineSpacingExtra="@dimen/_6sdp"
+                    android:padding="@dimen/_8sdp"
+                    android:text="Young actor Mandeep Singh from Sirsa, Haryana is considered to be a star these days. With his upcoming movie in the Punjabi Cinema, he has caught the attention of the media as well as the audience. His good looks and acting performances have won the hearts of the masses.
+
+Mandeep is just 23 years old and his acting skills are beyond expectations. Social media and other digital media are filled with his fans and people are praising his talent."
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/textView19"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Struggling days"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView20"
+                    android:layout_width="@dimen/_268sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:lineSpacingExtra="@dimen/_6sdp"
+                    android:padding="@dimen/_8sdp"
+                    android:text="Once speaking about his experience he has shared that his life did not change overnight. He had to work hard and struggle in the industry to get the recognition that he got today. He would strive day and night to achieve that one dream of becoming an actor which now has become a reality by his dedication to constantly improve and get better."
+                    android:textColor="@color/black" />
+
+            </LinearLayout>
+        </ScrollView>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

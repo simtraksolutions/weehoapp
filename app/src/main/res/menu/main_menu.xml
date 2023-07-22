@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<group>
+        <item
+            android:id="@+id/performer"
+            android:title="Performers">
+            <menu>
+                    <item
+                        android:title="Mandeep singh"
+                        android:id="@+id/performer1"
+                        app:showAsAction="collapseActionView">
+                    </item>
+                    <item
+                        android:title="Rupali Bhattacharjee"
+                        android:id="@+id/performer2">
+                    </item>
+                <item
+                    android:title="Naviin Gandharv"
+                    android:id="@+id/performer3">
+                </item>
+            </menu>
+        </item>
+        <item
+            android:id="@+id/program"
+            android:title="Programs">
+            <menu>
+                <item android:title="Friends Parties"
+                    android:id="@+id/program1">
+                </item>
+                <item android:title="Family Parties"
+                    android:id="@+id/program2"
+                    ></item>
+                <item android:id="@+id/program3"
+                    android:title="Family Get-Together"
+                    ></item>
+                <item android:title="And many more"
+                    android:id="@+id/program4"
+                    ></item>
+            </menu>
+        </item>
+</group>
+</menu>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#FF0000" /> <!-- Replace "#FF0000" with your desired color -->
+    <size android:width="24dp" android:height="24dp" /> <!-- Set the desired size of the icon -->
+</shape>

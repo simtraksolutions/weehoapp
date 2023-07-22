@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity5">
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="@dimen/_235sdp"
+        android:layout_height="@dimen/_225sdp"
+        android:layout_marginTop="@dimen/_4sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/rupali" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="@dimen/_289sdp"
+        android:layout_height="@dimen/_375sdp"
+        android:layout_marginTop="@dimen/_40sdp"
+        android:layout_marginBottom="@dimen/_50sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView11"
+        tools:ignore="MissingConstraints">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Rupali Bhattacharjee"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_20ssp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="@dimen/_268sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_22sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+
+                    android:text="Modern Bengali, Devotional and Tagore song, Soloist"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="@dimen/_268sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:lineSpacingExtra="@dimen/_6sdp"
+                    android:padding="@dimen/_8sdp"
+                    android:text="About Rupali Bhattacharjee \n Introducing Mrs. Rupali Bhattacharjee: A Versatile Voice for Modern Bengali, Devotional, Tagore, and Hindi Songs. With a voice that captivates hearts and a talent that knows no boundaries, allow us to introduce the remarkable Mrs. Rupali Bhattacharjee.
+
+This versatile singer hails from the enchanting land of Bengal, where she has honed her skills to become a masterful performer in various genres."
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_22sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:text="Contribution in Modern Bengali songs"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="@dimen/_268sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:lineSpacingExtra="@dimen/_6sdp"
+                    android:padding="@dimen/_8sdp"
+                    android:text="Mrs. Rupali Bhattacharjee is a true musical maestro, gifted with the ability to effortlessly transition between Modern Bengali songs, Devotional melodies, Tagore classics, and Hindi compositions. Her voice holds an undeniable charm, capable of stirring emotions and touching the souls of her listeners.
+
+When she delves into Modern Bengali songs, Mrs. Bhattacharjee infuses her renditions with a contemporary flair, breathing new life into melodies that resonate with the modern generation. Her exquisite vocal control and emotional depth ensure that every note she sings leaves a lasting impact."
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_22sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:text="Contribution in devotional songs"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="@dimen/_268sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:lineSpacingExtra="@dimen/_6sdp"
+                    android:padding="@dimen/_8sdp"
+                    android:text="Devotional songs are an area where Mrs. Rupali Bhattacharjee’s spiritual connection shines through. With each soul-stirring verse, she transports her audience to a higher plane, evoking a sense of devotion and surrender. Her ability to infuse devotion into her voice is nothing short of magical, leaving listeners feeling spiritually awakened."
+                    android:textColor="@color/black" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_22sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:text="Connection with Rabindranath Tagore"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="@dimen/_268sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:lineSpacingExtra="@dimen/_6sdp"
+                    android:padding="@dimen/_8sdp"
+                    android:text="The works of Rabindranath Tagore hold a special place in Mrs. Bhattacharjee’s heart. With a deep appreciation for the poetry and melodies created by the Nobel laureate, she brings Tagore’s compositions to life with elegance and grace. Her renditions of these timeless classics carry the essence of Bengal’s rich cultural heritage."
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_22sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:text="Magic of Versatility"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="@dimen/_268sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:lineSpacingExtra="@dimen/_6sdp"
+                    android:padding="@dimen/_8sdp"
+                    android:text="As a versatile artist, Mrs. Rupali Bhattacharjee also explores the realm of Hindi music. Her melodious voice effortlessly adapts to the nuances of Hindi songs, captivating audiences with her expressive and heartfelt performances. Whether it’s a soulful ballad or an energetic dance number, she brings a unique touch to every Hindi composition.
+
+In the realm of music, Mrs. Rupali Bhattacharjee stands as a beacon of talent and versatility. With her enchanting voice, she seamlessly bridges the gap between traditional and contemporary genres, touching the hearts of fans across various musical landscapes. Experience the magic as Mrs. Bhattacharjee’s melodies enchant your senses, taking you on a musical journey unlike any other."
+
+                    android:textColor="@color/black" />
+            </LinearLayout>
+        </ScrollView>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

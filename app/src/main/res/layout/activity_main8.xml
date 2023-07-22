@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity8">
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="@dimen/_141sdp"
+        android:layout_height="@dimen/_98sdp"
+        android:layout_marginTop="@dimen/_1sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.401"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/weeho"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="2dp" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:fontFamily="serif"
+        android:text="Create your account"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_20sdp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.408"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewSignup"
+        android:layout_width="@dimen/_229sdp"
+        android:layout_height="@dimen/_38sdp"
+        app:cardBackgroundColor="#FFFFFF"
+        app:cardCornerRadius="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_78sdp"
+
+        app:cardElevation="@dimen/_4sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.531"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView15"
+        tools:ignore="ExtraText,MissingConstraints,NotSibling">
+
+        <ImageView
+            android:id="@+id/imageViewgmail"
+            android:layout_width="@dimen/_26sdp"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/_10sdp"
+            android:paddingTop="@dimen/_2sdp"
+            app:srcCompat="@drawable/images1" />
+
+
+        <EditText
+            android:id="@+id/editTextTextEmailAddress3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:hint="Email"
+            android:textSize="@dimen/_15ssp"
+            android:paddingLeft="@dimen/_38sdp"
+            android:background="@null"
+            android:textColorHint="@color/black"
+            android:inputType="textEmailAddress" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewSignupName"
+        android:layout_width="@dimen/_229sdp"
+        android:layout_height="@dimen/_38sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        app:cardBackgroundColor="#FFFFFF"
+        app:cardCornerRadius="@dimen/_8sdp"
+
+        app:cardElevation="@dimen/_8sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.531"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView15"
+        tools:ignore="ExtraText,MissingConstraints,NotSibling">
+        <ImageView
+            android:id="@+id/imageViewname"
+            android:layout_width="@dimen/_31sdp"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/_5sdp"
+            app:srcCompat="@drawable/nameimg" />
+        <EditText
+            android:id="@+id/editTextText3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Name"
+            android:background="@null"
+            android:paddingLeft="@dimen/_38sdp"
+            android:textColorHint="@color/black"
+            android:textSize="@dimen/_15ssp"
+            android:inputType="text"
+           />
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewSignupPass"
+        android:layout_width="@dimen/_229sdp"
+        android:layout_height="@dimen/_38sdp"
+        android:layout_marginTop="@dimen/_138sdp"
+        app:cardBackgroundColor="#FFFFFF"
+        app:cardCornerRadius="@dimen/_8sdp"
+
+        app:cardElevation="@dimen/_8sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.531"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView15"
+        tools:ignore="ExtraText,MissingConstraints,NotSibling">
+        <ImageView
+            android:id="@+id/imageViewpas"
+            android:layout_width="@dimen/_31sdp"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/_5sdp"
+            app:srcCompat="@drawable/img_2" />
+        <EditText
+            android:id="@+id/editTextTextPassword2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Password"
+            android:textSize="@dimen/_15ssp"
+            android:textColorHint="@color/black"
+            android:background="@null"
+            android:paddingLeft="@dimen/_38sdp"
+            android:ems="10"
+            android:inputType="textPassword" />
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewSignupRePass"
+        android:layout_width="@dimen/_229sdp"
+        android:layout_height="@dimen/_38sdp"
+        android:layout_marginTop="@dimen/_198sdp"
+        app:cardBackgroundColor="#FFFFFF"
+        app:cardCornerRadius="@dimen/_8sdp"
+
+        app:cardElevation="@dimen/_8sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.531"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView15"
+        tools:ignore="ExtraText,MissingConstraints,NotSibling">
+        <ImageView
+            android:id="@+id/imageViewRepass"
+            android:layout_width="@dimen/_31sdp"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/_5sdp"
+            app:srcCompat="@drawable/img_2" />
+        <EditText
+            android:id="@+id/editTextTextPassword3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Confirm Password"
+            android:textSize="@dimen/_15ssp"
+            android:textColorHint="@color/black"
+            android:paddingLeft="@dimen/_38sdp"
+            android:background="@null"
+            android:ems="10"
+            android:inputType="textPassword" />
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="@dimen/_142sdp"
+        android:layout_height="@dimen/_42sdp"
+        android:layout_marginBottom="@dimen/_142sdp"
+        android:text="Sign up"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

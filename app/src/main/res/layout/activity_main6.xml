@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity6">
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="@dimen/_235sdp"
+        android:layout_height="@dimen/_225sdp"
+        android:layout_marginTop="@dimen/_4sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/naviin" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="@dimen/_289sdp"
+        android:layout_height="@dimen/_375sdp"
+        android:layout_marginTop="@dimen/_40sdp"
+        android:layout_marginBottom="@dimen/_50sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView10">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="@dimen/_268sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Naviin Gandharv"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_20ssp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_22sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:text="An Expert in Belabaharr"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="@dimen/_268sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:lineSpacingExtra="@dimen/_6sdp"
+                    android:padding="@dimen/_8sdp"
+                    android:text="About Naviin Gandharv \n Pt.Naviin Gandharv  is a young, multi-talented and dynamic artist who plays the unique instrument- Belabaharr and Tabla with equal dexterity. With immense dedication  he lives up to his name ‘Gandharv ‘ and has proved to be a priceless asset to the music world .Born in the heart of Dewas, a famous place in Madhya Pradesh , India  where music is cherished since generations in the aristocratic family of  Pt. Kashiram – a celebrated Sarangi Master."
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_22sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:text="About Belabaharr"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="@dimen/_268sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:lineSpacingExtra="@dimen/_6sdp"
+                    android:padding="@dimen/_8sdp"
+                    android:text="The Belabaharr is a unique instrument that combines the tonal effect of a Sarangi with the convenience of a Violin. It is not commercially available as a musical instrument, although it is approved by AIR and Doordarshan. Its commercial rendezvous is restricted to a few pieces in the popular Bollywood hits like 1942 A Love Story, Gadar, Damini, LOC Kargil, Refugee etc.The Belabaharr has been a substitute to most varieties of bowing instruments like Dilruba, Tar-shehnai, Ravanhatta, Violin, Sarangi etc."
+
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_22sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:text="Contribution to Indian classical music"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="@dimen/_268sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:lineSpacingExtra="@dimen/_6sdp"
+                    android:padding="@dimen/_8sdp"
+                    android:text="Being a versatile performer in melody and Rhythm he has also added new dimensions to the Indian classical music by forming ‘Anuraaj ‘ a team of highly talented musicians through which they exhibit divinity joy ,excitement ,aesthetics , power and hope for a better tomorrow which is the purpose of all forms of art."
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_22sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:text="Uniqueness of Belabaharr"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="@dimen/_268sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:lineSpacingExtra="@dimen/_6sdp"
+                    android:padding="@dimen/_8sdp"
+                    android:text="Belabaharr is a versatile instrument which has been almost used in most forms of music such as classical, folk, devotional, film music, contemporary and world music. The unique sound of Belabaharr has been appreciated by eminent musicians like Padma Vibhushan Pt.Ram Narayan, Ustad Zakir ,Hussain, A.R.Rahman, Marat Bisengaliev, Kenny G, Vanessa Mae, Bharat Ratna Lata Mangeshkar, Ustad Ghulam Ali, Laxmikant, Pyarelal, Anup Jalota, Pankaj Udhas, Naushad sahib, etc."
+                    android:textColor="@color/black" />
+            </LinearLayout>
+        </ScrollView>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
