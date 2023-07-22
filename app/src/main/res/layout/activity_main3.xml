@@ -109,11 +109,9 @@
         android:id="@+id/cardView2"
         android:layout_width="@dimen/_229sdp"
         android:layout_height="@dimen/_38sdp"
-        android:layout_marginStart="@dimen/_1sdp"
-        android:layout_marginLeft="@dimen/_1sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:layout_marginEnd="@dimen/_11sdp"
         android:layout_marginRight="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+
         app:cardBackgroundColor="#FFFFFF"
         app:cardCornerRadius="@dimen/_8sdp"
         app:cardElevation="@dimen/_4sdp"
@@ -126,13 +124,14 @@
           android:id="@+id/imageViewPhone"
           android:layout_width="@dimen/_26sdp"
           android:layout_height="match_parent"
-          android:paddingLeft="@dimen/_10sdp"
+
+          android:paddingLeft="@dimen/_11sdp"
           android:paddingTop="@dimen/_2sdp"
-          app:srcCompat="@drawable/playlist" />
+          app:srcCompat="@drawable/list" />
       <Spinner
           android:id="@+id/spinner"
           android:layout_gravity="center_vertical"
-          android:paddingLeft="@dimen/_34sdp"
+          android:paddingLeft="@dimen/_33sdp"
           android:layout_width="match_parent"
           android:layout_height="match_parent"
           android:textColor="@color/black" />
@@ -313,7 +312,7 @@
           android:layout_height="match_parent"
           android:paddingLeft="@dimen/_10sdp"
           android:paddingTop="@dimen/_2sdp"
-          app:srcCompat="@drawable/idea" />
+          app:srcCompat="@drawable/ideaorange" />
       <EditText
           android:id="@+id/editTextNumberDecimal3"
           android:layout_width="@dimen/_229sdp"
@@ -356,7 +355,7 @@
           android:layout_height="match_parent"
           android:paddingLeft="@dimen/_10sdp"
           android:paddingTop="@dimen/_2sdp"
-          app:srcCompat="@drawable/calendar" />
+          app:srcCompat="@drawable/calendarorange" />
       <EditText
           android:id="@+id/dateEditText"
           android:layout_width="@dimen/_229sdp"
@@ -392,9 +391,8 @@
         android:id="@+id/button"
         android:layout_width="@dimen/_100sdp"
         android:layout_height="wrap_content"
-
+        android:backgroundTint="#F44336"
         android:layout_marginTop="@dimen/_17sdp"
-        android:backgroundTint="#4CB8D8"
         android:text="Submit"
         android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"

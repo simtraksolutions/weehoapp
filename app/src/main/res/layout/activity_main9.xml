@@ -60,11 +60,11 @@
 
         <ImageView
             android:id="@+id/imageViewgmailforgot"
-            android:layout_width="@dimen/_26sdp"
+            android:layout_width="@dimen/_31sdp"
             android:layout_height="match_parent"
-            android:paddingLeft="@dimen/_10sdp"
+            android:paddingLeft="@dimen/_5sdp"
             android:paddingTop="@dimen/_2sdp"
-            app:srcCompat="@drawable/images1" />
+            app:srcCompat="@drawable/message" />
 
 
         <EditText
@@ -87,6 +87,7 @@
         android:text="Submit"
         android:textColor="@color/white"
         android:textStyle="bold"
+        android:backgroundTint="#F44336"
         android:layout_marginTop="@dimen/_30sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

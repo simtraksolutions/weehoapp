@@ -125,7 +125,7 @@
                 android:layout_height="match_parent"
                 android:paddingLeft="@dimen/_10sdp"
                 android:paddingTop="@dimen/_2sdp"
-                app:srcCompat="@drawable/profile" />
+                app:srcCompat="@drawable/user" />
             <EditText
                 android:id="@+id/editTextText"
                 android:layout_width="match_parent"
@@ -164,7 +164,7 @@
                 android:layout_height="match_parent"
                 android:paddingLeft="@dimen/_10sdp"
                 android:paddingTop="@dimen/_2sdp"
-                app:srcCompat="@drawable/email123" />
+                app:srcCompat="@drawable/message" />
             <TextView
                 android:id="@+id/textView_email"
                 android:layout_width="@dimen/_229sdp"
@@ -203,7 +203,7 @@
                 android:layout_height="match_parent"
                 android:paddingLeft="@dimen/_10sdp"
                 android:paddingTop="@dimen/_2sdp"
-                app:srcCompat="@drawable/phonecall" />
+                app:srcCompat="@drawable/phone" />
 
             <TextView
                 android:id="@+id/text_number"
@@ -240,7 +240,7 @@
                 android:layout_height="match_parent"
                 android:paddingLeft="@dimen/_10sdp"
                 android:paddingTop="@dimen/_2sdp"
-                app:srcCompat="@drawable/placeholder" />
+                app:srcCompat="@drawable/place" />
             <EditText
                 android:id="@+id/editTextText2"
                 android:layout_width="@dimen/_229sdp"
@@ -280,7 +280,7 @@
                 android:layout_height="match_parent"
                 android:paddingLeft="@dimen/_10sdp"
                 android:paddingTop="@dimen/_2sdp"
-                app:srcCompat="@drawable/idea" />
+                app:srcCompat="@drawable/ideaorange" />
 
             <EditText
                 android:id="@+id/editTextNumberDecimal3"
@@ -323,7 +323,7 @@
                 android:layout_height="match_parent"
                 android:paddingLeft="@dimen/_10sdp"
                 android:paddingTop="@dimen/_2sdp"
-                app:srcCompat="@drawable/calendar" />
+                app:srcCompat="@drawable/calendarorange" />
             <EditText
                 android:id="@+id/dateEditText"
                 android:layout_width="@dimen/_229sdp"
@@ -361,7 +361,7 @@
             android:layout_height="wrap_content"
 
             android:layout_marginTop="@dimen/_17sdp"
-            android:backgroundTint="#4CB8D8"
+            android:backgroundTint="#F44336"
             android:text="Submit"
             android:textColorHint="@color/white"
             app:layout_constraintEnd_toEndOf="parent"

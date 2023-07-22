@@ -51,11 +51,11 @@
 
         <ImageView
             android:id="@+id/imageViewgmail"
-            android:layout_width="@dimen/_26sdp"
+            android:layout_width="@dimen/_31sdp"
             android:layout_height="match_parent"
-            android:paddingLeft="@dimen/_10sdp"
+            android:paddingLeft="@dimen/_5sdp"
             android:paddingTop="@dimen/_2sdp"
-            app:srcCompat="@drawable/images1" />
+            app:srcCompat="@drawable/message" />
 
 
         <EditText
@@ -90,7 +90,7 @@
             android:layout_width="@dimen/_31sdp"
             android:layout_height="match_parent"
             android:paddingLeft="@dimen/_5sdp"
-            app:srcCompat="@drawable/nameimg" />
+            app:srcCompat="@drawable/user" />
         <EditText
             android:id="@+id/editTextText3"
             android:layout_width="match_parent"
@@ -122,7 +122,7 @@
             android:layout_width="@dimen/_31sdp"
             android:layout_height="match_parent"
             android:paddingLeft="@dimen/_5sdp"
-            app:srcCompat="@drawable/img_2" />
+            app:srcCompat="@drawable/padlock" />
         <EditText
             android:id="@+id/editTextTextPassword2"
             android:layout_width="match_parent"
@@ -154,7 +154,7 @@
             android:layout_width="@dimen/_31sdp"
             android:layout_height="match_parent"
             android:paddingLeft="@dimen/_5sdp"
-            app:srcCompat="@drawable/img_2" />
+            app:srcCompat="@drawable/padlock" />
         <EditText
             android:id="@+id/editTextTextPassword3"
             android:layout_width="match_parent"
@@ -173,6 +173,7 @@
         android:layout_width="@dimen/_142sdp"
         android:layout_height="@dimen/_42sdp"
         android:layout_marginBottom="@dimen/_142sdp"
+        android:backgroundTint="#F44336"
         android:text="Sign up"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
