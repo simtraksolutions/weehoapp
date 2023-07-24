@@ -10,7 +10,7 @@ import android.widget.LinearLayout;
 
 public class MainActivity12 extends AppCompatActivity {
     LinearLayout layout;
-    CardView bookanevent, logout, createanevent, contact, performers;
+    CardView bookanevent, logout, createanevent, contact, performers,history;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +30,7 @@ public class MainActivity12 extends AppCompatActivity {
         performers = findViewById(R.id.cardView15);
         logout = findViewById(R.id.cardView14);
         createanevent = findViewById(R.id.cardView10);
+        history = findViewById(R.id.cardView12);
         contact = findViewById(R.id.cardView13);
 
         bookanevent.setOnClickListener(new View.OnClickListener() {
@@ -52,7 +53,13 @@ public class MainActivity12 extends AppCompatActivity {
                 finish();
             }
         });
-
+        history.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity12.this,MainActivity17.class);
+                startActivity(intent);
+            }
+        });
         createanevent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

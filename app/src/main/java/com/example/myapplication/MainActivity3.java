@@ -181,12 +181,14 @@ public class MainActivity3 extends AppCompatActivity {
                     hashmap.put("date", getdate);
                     hashmap.put("occasion", getoccasion);
 
+
                     databaseReference.child("Users")
                             .child(getname)
                             .setValue(hashmap)
                             .addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void unused) {
+
                                     Toast.makeText(MainActivity3.this, "Data stored successfully", Toast.LENGTH_SHORT).show();
                                 }
                             })
@@ -203,8 +205,8 @@ public class MainActivity3 extends AppCompatActivity {
                     city.setText("");
                     occasion.setText("");
                     dateEditText.setText("");
-                    Intent intent = new Intent(MainActivity3.this,MainActivity12.class);
-                    startActivity(intent);
+                    Intent intent1 = new Intent(MainActivity3.this,MainActivity12.class);
+                    startActivity(intent1);
                 }
             }
         });
