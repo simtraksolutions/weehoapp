@@ -16,7 +16,6 @@ public class MainActivity12 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main12);
-
         layout = findViewById(R.id.dashboard);
         layout.setBackgroundResource(R.drawable.background1);
 
@@ -64,6 +63,9 @@ public class MainActivity12 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity12.this, MainActivity13.class);
+                intent.putExtra("keymail", useremail);
+                intent.putExtra("keymail1",usermail1);
+                intent.putExtra("keyphone", userphone);
                 startActivity(intent);
             }
         });
@@ -80,6 +82,9 @@ public class MainActivity12 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity12.this, MainActivity14.class);
+                intent.putExtra("keymail", useremail);
+                intent.putExtra("keymail1", usermail1);
+                intent.putExtra("keyphone", userphone);
                 startActivity(intent);
             }
         });

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/draw_layout"
@@ -8,42 +9,34 @@
     android:background="@color/white"
     tools:context=".MainActivity13"
     android:fitsSystemWindows="true"
-    tools:openDrawer="end"
-    >
+    tools:openDrawer="end">
+
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:id="@+id/nav_view"
         app:headerLayout="@layout/header"
         app:menu="@menu/main_menu"
-        android:layout_gravity="start"
-
-        >
-
+        android:layout_gravity="start">
 
     </com.google.android.material.navigation.NavigationView>
-
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardviewbookanevent"
+            android:id="@+id/creatcardevent"
             android:layout_width="@dimen/_300sdp"
             android:layout_height="@dimen/_60sdp"
             android:layout_marginTop="@dimen/_10sdp"
             app:cardBackgroundColor="#FFFFFF"
             app:cardCornerRadius="@dimen/_8sdp"
             app:cardElevation="@dimen/_4sdp"
-
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.5"
-            tools:ignore="MissingConstraints">
-
+            app:layout_constraintTop_toTopOf="parent">
 
 
             <androidx.appcompat.widget.Toolbar
@@ -57,42 +50,27 @@
                 tools:ignore="MissingConstraints"
                 tools:layout_editor_absoluteX="-@dimen/_97sdp"
                 tools:layout_editor_absoluteY="@dimen/_25sdp">
-
-
-                <!-- Your activity content -->
-
-
             </androidx.appcompat.widget.Toolbar>
 
 
 
 
-            <!--  <androidx.drawerlayout.widget.DrawerLayout-->
-            <!--      android:id="@+id/drawerLayout"-->
-            <!--      android:layout_width="160dp"-->
-            <!--      android:layout_height="42dp"-->
-            <!--      app:layout_constraintBottom_toBottomOf="@+id/scrollView2"-->
-            <!--      app:layout_constraintEnd_toEndOf="parent"-->
-            <!--      app:layout_constraintHorizontal_bias="0.47"-->
-            <!--      app:layout_constraintStart_toStartOf="parent"-->
-            <!--      tools:ignore="UnknownId">-->
 
-            <!--  </androidx.drawerlayout.widget.DrawerLayout>-->
-            ``
+
 
             <ImageView
                 android:id="@+id/imageView17"
-                android:layout_width="@dimen/_35sdp"
-                android:layout_height="@dimen/_36sdp"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_26sdp"
                 android:layout_marginLeft="@dimen/_260sdp"
-                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_gravity="center_vertical"
                 app:layout_constraintBottom_toTopOf="@+id/toolbar"
                 app:layout_constraintEnd_toStartOf="@+id/toolbar"
                 app:layout_constraintHorizontal_bias="0.133"
                 app:layout_constraintStart_toEndOf="@+id/toolbar"
                 app:layout_constraintTop_toBottomOf="@+id/toolbar"
                 app:layout_constraintVertical_bias="0.49"
-                app:srcCompat="@drawable/nameimg" />
+                app:srcCompat="@drawable/person" />
 
             <ImageView
                 android:id="@+id/imageView2"
@@ -107,6 +85,7 @@
         </androidx.cardview.widget.CardView>
 
 
+
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView4"
             android:layout_width="@dimen/_229sdp"
@@ -117,8 +96,8 @@
             app:cardElevation="@dimen/_4sdp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cardView7"
-            tools:ignore="MissingConstraints">
+            tools:ignore="MissingConstraints"
+            app:layout_constraintTop_toBottomOf="@+id/cardView7">
             <ImageView
                 android:id="@+id/imageViewNAME"
                 android:layout_width="@dimen/_26sdp"
@@ -126,13 +105,14 @@
                 android:paddingLeft="@dimen/_10sdp"
                 android:paddingTop="@dimen/_2sdp"
                 app:srcCompat="@drawable/user" />
+
             <EditText
                 android:id="@+id/editTextText"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 android:layout_gravity="center_vertical"
-                android:ems="10"
                 android:background="@null"
+                android:ems="10"
                 android:fontFamily="@font/average_sans"
                 android:hint="Name"
                 android:inputType="text"
@@ -236,11 +216,11 @@
             tools:ignore="MissingConstraints">
             <ImageView
                 android:id="@+id/imageViewCity"
-                android:layout_width="@dimen/_26sdp"
+                android:layout_width="@dimen/_28sdp"
                 android:layout_height="match_parent"
                 android:paddingLeft="@dimen/_10sdp"
                 android:paddingTop="@dimen/_2sdp"
-                app:srcCompat="@drawable/place" />
+                app:srcCompat="@drawable/locationorange" />
             <EditText
                 android:id="@+id/editTextText2"
                 android:layout_width="@dimen/_229sdp"
@@ -264,15 +244,16 @@
             android:id="@+id/cardView7"
             android:layout_width="@dimen/_229sdp"
             android:layout_height="@dimen/_38sdp"
+            android:layout_marginTop="@dimen/_20sdp"
             app:cardBackgroundColor="#FFFFFF"
-            android:layout_marginTop="@dimen/_160sdp"
             app:cardCornerRadius="@dimen/_8sdp"
             app:cardElevation="@dimen/_4sdp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.494"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints">
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteY="523dp"
+                app:layout_constraintTop_toBottomOf="@+id/textView32">
 
             <ImageView
                 android:id="@+id/imageViewOccasion"
@@ -285,12 +266,12 @@
             <EditText
                 android:id="@+id/editTextNumberDecimal3"
                 android:layout_width="@dimen/_229sdp"
-                android:layout_height="@dimen/_35sdp"
+                android:layout_height="@dimen/_45sdp"
                 android:layout_gravity="center_vertical"
                 android:background="@null"
                 android:ems="10"
                 android:fontFamily="@font/average_sans"
-                android:hint="Occasion or specify event"
+                android:hint="Occasion or specify your event"
                 android:inputType="text"
                 android:paddingLeft="@dimen/_38sdp"
                 android:textColor="@color/black"
@@ -306,11 +287,12 @@
             android:id="@+id/dateview"
             android:layout_width="@dimen/_229sdp"
             android:layout_height="@dimen/_38sdp"
-            android:layout_marginTop="@dimen/_10sdp"
+
+
             app:cardBackgroundColor="#FFFFFF"
             app:cardCornerRadius="@dimen/_8sdp"
             app:cardElevation="@dimen/_4sdp"
-            app:layout_constraintBottom_toTopOf="@+id/button"
+            app:layout_constraintBottom_toTopOf="@+id/cardView7"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -335,7 +317,7 @@
                 android:onClick="showDatePickerDialog"
                 android:paddingLeft="@dimen/_38sdp"
                 android:textColorHint="@color/black"
-                app:layout_constraintBottom_toTopOf="@+id/button"
+                app:layout_constraintBottom_toTopOf="@+id/cardView7"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cardView6"
@@ -355,19 +337,19 @@
         <!--      tools:layout_editor_absoluteY="1dp">-->
 
         <!--  </com.google.android.material.bottomnavigation.BottomNavigationView>-->
+
         <Button
             android:id="@+id/button"
             android:layout_width="@dimen/_100sdp"
             android:layout_height="wrap_content"
-
-            android:layout_marginTop="@dimen/_17sdp"
             android:backgroundTint="#F44336"
             android:text="Submit"
+            android:layout_marginTop="@dimen/_10sdp"
             android:textColorHint="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dateview"
-            tools:ignore="NotSibling" />
+            app:layout_constraintTop_toBottomOf="@+id/cardView6"
+            tools:ignore="MissingConstraints,NotSibling" />
 
         <TextView
             android:id="@+id/textView24"
@@ -381,7 +363,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.248"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardviewbookanevent" />
+            app:layout_constraintTop_toBottomOf="@+id/creatcardevent" />
 
         <TextView
             android:id="@+id/textView32"

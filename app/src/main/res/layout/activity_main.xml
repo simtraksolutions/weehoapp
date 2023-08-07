@@ -27,7 +27,8 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardviewintro"
-            android:layout_width="@dimen/_300sdp"
+            android:layout_width=
+                "@dimen/_300sdp"
             android:layout_height="@dimen/_60sdp"
             android:layout_marginTop="@dimen/_10sdp"
             app:cardBackgroundColor="#FFFFFF"
@@ -118,7 +119,8 @@
         app:layout_constraintStart_toStartOf="@+id/view"
         app:srcCompat="@drawable/facebook4" />
 
-    <ImageView
+
+        <ImageView
         android:id="@+id/imageView15"
         android:layout_width="@dimen/_40sdp"
         android:layout_height="@dimen/_75sdp"

@@ -33,7 +33,6 @@
         <activity
             android:name=".MainActivity13"
             android:exported="false"
-            android:label="@string/title_activity_main13"
             android:theme="@style/Theme.MyApplication" />
         <activity
             android:name=".MainActivity12"

@@ -1,157 +1,196 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<!-- activity_history.xml -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity17">
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView11"
-        android:layout_width="@dimen/_300sdp"
-        android:layout_height="@dimen/_60sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        app:cardBackgroundColor="#FFFFFF"
-        app:cardCornerRadius="@dimen/_8sdp"
-        app:cardElevation="@dimen/_4sdp"
+    android:layout_height="match_parent">
 
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5"
-        tools:ignore="MissingConstraints">
+    <ListView
+        android:id="@+id/historyListView"
+        android:layout_width="370dp"
+        android:layout_height="483dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="29dp"
+        android:layout_marginLeft="29dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginBottom="261dp" />
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar10"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:background="@color/white"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="@style/Mytoolbartheme"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="-@dimen/_97sdp"
-            tools:layout_editor_absoluteY="@dimen/_25sdp">
+    <ListView
+        android:id="@+id/subtitle"
+        android:layout_width="370dp"
+        android:layout_height="483dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="29dp"
+        android:layout_marginLeft="29dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginBottom="261dp" />
+
+</RelativeLayout>
+
+    <!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:id="@+id/constraint"-->
+<!--    android:layout_height="match_parent"-->
+<!--    tools:context=".MainActivity17">-->
+<!--    <androidx.cardview.widget.CardView-->
+<!--        android:id="@+id/cardView11"-->
+<!--        android:layout_width="@dimen/_300sdp"-->
+<!--        android:layout_height="@dimen/_60sdp"-->
+<!--        android:layout_marginTop="@dimen/_10sdp"-->
+<!--        app:cardBackgroundColor="#FFFFFF"-->
+<!--        app:cardCornerRadius="@dimen/_8sdp"-->
+<!--        app:cardElevation="@dimen/_4sdp"-->
+
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.5"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.5"-->
+<!--        tools:ignore="MissingConstraints">-->
+
+<!--        <androidx.appcompat.widget.Toolbar-->
+<!--            android:id="@+id/toolbar10"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center_vertical"-->
+<!--            android:background="@color/white"-->
+<!--            android:minHeight="?attr/actionBarSize"-->
+<!--            android:theme="@style/Mytoolbartheme"-->
+<!--            tools:ignore="MissingConstraints"-->
+<!--            tools:layout_editor_absoluteX="-@dimen/_97sdp"-->
+<!--            tools:layout_editor_absoluteY="@dimen/_25sdp">-->
 
 
-            <!-- Your activity content -->
+<!--            &lt;!&ndash; Your activity content &ndash;&gt;-->
 
 
-        </androidx.appcompat.widget.Toolbar>
+<!--        </androidx.appcompat.widget.Toolbar>-->
 
-        <!--        <TextView-->
-        <!--            android:id="@+id/textView25"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:textSize="@dimen/_16ssp"-->
-        <!--            android:layout_marginTop="@dimen/_25sdp"-->
-        <!--            android:layout_marginLeft="@dimen/_140sdp"-->
-        <!--            android:textColor="@color/black"-->
-        <!--            android:textStyle="bold" />-->
+<!--        &lt;!&ndash;        <TextView&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:id="@+id/textView25"&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:layout_width="wrap_content"&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:textSize="@dimen/_16ssp"&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:layout_marginTop="@dimen/_25sdp"&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:layout_marginLeft="@dimen/_140sdp"&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:textColor="@color/black"&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:textStyle="bold" />&ndash;&gt;-->
 
-        <ImageView
-            android:id="@+id/imageView20"
-            android:layout_width="@dimen/_100sdp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="@dimen/_10sdp"
-            app:srcCompat="@drawable/weeho" />
+<!--        <ImageView-->
+<!--            android:id="@+id/imageView20"-->
+<!--            android:layout_width="@dimen/_100sdp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center_vertical"-->
+<!--            android:layout_marginLeft="@dimen/_10sdp"-->
+<!--            app:srcCompat="@drawable/weeho" />-->
 
-        <TextView
-            android:id="@+id/textView38"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="History"
-            android:fontFamily="serif"
-            android:textColor="@color/black"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="@dimen/_135sdp"
-            android:textSize="@dimen/_22sdp"
-            android:textStyle="bold"/>
-    </androidx.cardview.widget.CardView>
+<!--        <TextView-->
+<!--            android:id="@+id/textView38"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="History"-->
+<!--            android:fontFamily="serif"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:layout_gravity="center_vertical"-->
+<!--            android:layout_marginLeft="@dimen/_135sdp"-->
+<!--            android:textSize="@dimen/_22sdp"-->
+<!--            android:textStyle="bold"/>-->
+<!--    </androidx.cardview.widget.CardView>-->
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="@dimen/_280sdp"
-        android:layout_height="@dimen/_150sdp"
-        android:layout_marginTop="@dimen/_20sdp"
-        app:cardBackgroundColor="#FFFFFF"
-        app:cardCornerRadius="@dimen/_8sdp"
-        app:cardElevation="@dimen/_4sdp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView11">
+<!--    <androidx.cardview.widget.CardView-->
+<!--        android:layout_width="@dimen/_280sdp"-->
+<!--        android:id="@+id/cardViewhistory"-->
+<!--        android:layout_height="@dimen/_90sdp"-->
+<!--        android:layout_marginTop="@dimen/_20sdp"-->
+<!--        app:cardBackgroundColor="#FFFFFF"-->
+<!--        app:cardCornerRadius="@dimen/_8sdp"-->
+<!--        app:cardElevation="@dimen/_4sdp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/cardView11">-->
 
-        <TextView
-            android:id="@+id/textView39"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:layout_marginLeft="@dimen/_10sdp"
-            android:text="Last event booked on : " />
+<!--        <TextView-->
+<!--            android:id="@+id/textView39"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:layout_marginTop="@dimen/_5sdp"-->
+<!--            android:layout_marginLeft="@dimen/_10sdp"-->
+<!--            android:text="Last event booked on : " />-->
 
-        <TextView
-            android:id="@+id/nameTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/_180sdp"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:text=""
-            android:textColor="@color/black" />
+<!--        <TextView-->
+<!--            android:id="@+id/nameTextView"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="@dimen/_180sdp"-->
+<!--            android:layout_marginTop="@dimen/_5sdp"-->
+<!--            android:text=""-->
+<!--            android:textColor="@color/black" />-->
 
-        <TextView
-            android:id="@+id/textView37"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Event name : "
-            android:textColor="@color/black"
-            android:layout_marginTop="@dimen/_25sdp"
-            android:layout_marginLeft="@dimen/_10sdp"
-           />
+<!--        <TextView-->
+<!--            android:id="@+id/textView37"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Event name : "-->
+<!--            android:textColor="@color/black"-->
+<!--            android:layout_marginTop="@dimen/_25sdp"-->
+<!--            android:layout_marginLeft="@dimen/_10sdp"-->
+<!--           />-->
 
-        <TextView
-            android:id="@+id/eventname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:textColor="@color/black"
-            android:layout_marginTop="@dimen/_25sdp"
-            android:layout_marginLeft="@dimen/_180sdp"/>
+<!--        <TextView-->
+<!--            android:id="@+id/eventname"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text=""-->
+<!--            android:textColor="@color/black"-->
+<!--            android:layout_marginTop="@dimen/_25sdp"-->
+<!--            android:layout_marginLeft="@dimen/_180sdp"/>-->
 
-        <TextView
-            android:id="@+id/textView41"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="City"
-            android:textColor="@color/black"
-            android:layout_marginTop="@dimen/_45sdp"
-            android:layout_marginLeft="@dimen/_10sdp"/>
+<!--        <TextView-->
+<!--            android:id="@+id/textView41"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="City"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:layout_marginTop="@dimen/_45sdp"-->
+<!--            android:layout_marginLeft="@dimen/_10sdp"/>-->
 
-        <TextView
-            android:id="@+id/cityname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:textColor="@color/black"
-            android:layout_marginTop="@dimen/_45sdp"
-            android:layout_marginLeft="@dimen/_180sdp" />
+<!--        <TextView-->
+<!--            android:id="@+id/cityname"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text=""-->
+<!--            android:textColor="@color/black"-->
+<!--            android:layout_marginTop="@dimen/_45sdp"-->
+<!--            android:layout_marginLeft="@dimen/_180sdp" />-->
 
-        <TextView
-            android:id="@+id/textView43"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ocaasion"
-            android:textColor="@color/black"
-            android:layout_marginTop="@dimen/_65sdp"
-            android:layout_marginLeft="@dimen/_10sdp"/>
+<!--        <TextView-->
+<!--            android:id="@+id/textView43"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Ocaasion"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:layout_marginTop="@dimen/_65sdp"-->
+<!--            android:layout_marginLeft="@dimen/_10sdp"/>-->
 
-        <TextView
-            android:id="@+id/occasionname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:textColor="@color/black"
-            android:layout_marginTop="@dimen/_65sdp"
-            android:layout_marginLeft="@dimen/_180sdp" />
-    </androidx.cardview.widget.CardView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+<!--        <TextView-->
+<!--            android:id="@+id/occasionname"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text=""-->
+<!--            android:textColor="@color/black"-->
+<!--            android:layout_marginTop="@dimen/_65sdp"-->
+<!--            android:layout_marginLeft="@dimen/_180sdp" />-->
+<!--    </androidx.cardview.widget.CardView>-->
+<!--</androidx.constraintlayout.widget.ConstraintLayout>-->

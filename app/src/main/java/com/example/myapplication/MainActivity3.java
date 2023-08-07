@@ -167,6 +167,9 @@ public class MainActivity3 extends AppCompatActivity {
                             .show();
                 } else {
                     String getname = name.getText().toString();
+                    Intent intent1 = new Intent(MainActivity3.this , MainActivity17.class);
+                    intent1.putExtra("databasename",getname);
+                    startActivity(intent1);
                     String getcity = city.getText().toString();
                     String getevent = spinner.getSelectedItem().toString();
                     String getnumber = number.getText().toString();
@@ -205,8 +208,6 @@ public class MainActivity3 extends AppCompatActivity {
                     city.setText("");
                     occasion.setText("");
                     dateEditText.setText("");
-                    Intent intent1 = new Intent(MainActivity3.this,MainActivity12.class);
-                    startActivity(intent1);
                 }
             }
         });

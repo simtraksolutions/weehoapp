@@ -29,7 +29,7 @@
         android:layout_height="match_parent">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardviewbookanevent"
+            android:id="@+id/creatcardevent"
             android:layout_width="@dimen/_300sdp"
             android:layout_height="@dimen/_60sdp"
             android:layout_marginTop="@dimen/_10sdp"
@@ -260,7 +260,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.232"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardviewbookanevent" />
+            app:layout_constraintTop_toBottomOf="@+id/creatcardevent" />
 
         <TextView
             android:id="@+id/textView32"
