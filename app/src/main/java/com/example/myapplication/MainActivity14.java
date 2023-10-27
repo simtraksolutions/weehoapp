@@ -12,12 +12,15 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,8 +31,9 @@ import java.util.HashMap;
 
 public class MainActivity14 extends AppCompatActivity {
     private Toolbar toolbar;
-    private EditText name,message;
-    TextView number,email;
+    private EditText message;
+    ImageView profile;
+    TextView name,number,email;
     private Button button;
     Menu item;
     private DrawerLayout drawerLayout;
@@ -42,6 +46,7 @@ public class MainActivity14 extends AppCompatActivity {
         setContentView(R.layout.activity_main14);
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference();
+        profile = findViewById(R.id.imageView17);
         name = findViewById(R.id.editTextText);
         message = findViewById(R.id.editTextTextMultiLine);
         email = findViewById(R.id.textView_email);
@@ -51,13 +56,12 @@ public class MainActivity14 extends AppCompatActivity {
         String useremail = intent.getStringExtra("keymail");
         String usermail1 = intent.getStringExtra("keymail1");
         String userphone = intent.getStringExtra("keyphone");
-        if (useremail == null) {
-            email.setText(usermail1);
-            number.setText(userphone);
-        } else {
-            email.setText(useremail);
-            number.setText(userphone);
-        }
+        SharedPreferences shad = getSharedPreferences("email",MODE_PRIVATE);
+        String usemail = shad.getString("usermail","");
+        String uphone = shad.getString("userphone","");
+        Log.d("MainActivity3", "Retrieved value from SharedPreferences: " + usemail);
+        email.setText(usemail);
+        number.setText(uphone);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle("");
@@ -73,6 +77,26 @@ public class MainActivity14 extends AppCompatActivity {
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.navigation_drawer_open,R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+        SharedPreferences sharedPreferencesf = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+
+// Retrieve data
+        String namef = sharedPreferencesf.getString("Name", "");
+        String emailf = sharedPreferencesf.getString("Email", "");
+        String phoneNumber = sharedPreferencesf.getString("PhoneNumber", "");
+        name.setText(namef);
+        email.setText(emailf);
+        number.setText(phoneNumber);
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity14.this, MainActivity10.class);
+                String username = name.getText().toString();
+                intent.putExtra("keyname", username);
+                intent.putExtra("keyphone", userphone);
+                intent.putExtra("keymail", useremail);
+                startActivity(intent);
+            }
+        });
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -135,9 +159,7 @@ public class MainActivity14 extends AppCompatActivity {
                             });
 
                     Toast.makeText(MainActivity14.this, "Your form has been submitted", Toast.LENGTH_SHORT).show();
-                    name.setText("");
-                    number.setText("");
-                    email.setText("");
+
                     message.setText("");
 
                 }

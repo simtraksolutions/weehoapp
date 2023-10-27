@@ -3,13 +3,16 @@ package com.example.myapplication;
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,6 +34,7 @@ import java.util.HashMap;
 
 public class MainActivity13 extends AppCompatActivity {
     private Toolbar toolbar;
+    ImageView profile;
     private EditText name, city, occasion,dateEditText;
     TextView number,email;
     Menu item;
@@ -47,6 +51,7 @@ public class MainActivity13 extends AppCompatActivity {
         setContentView(R.layout.activity_main13);
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference();
+        profile = findViewById(R.id.imageView17);
         name = findViewById(R.id.editTextText);
         email = findViewById(R.id.textView_email);
         number = findViewById(R.id.text_number);
@@ -57,13 +62,12 @@ public class MainActivity13 extends AppCompatActivity {
         String useremail = intent.getStringExtra("keymail");
         String usermail1 = intent.getStringExtra("keymail1");
         String userphone = intent.getStringExtra("keyphone");
-        if (useremail == null) {
-            email.setText(usermail1);
-            number.setText(userphone);
-        } else {
-            email.setText(useremail);
-            number.setText(userphone);
-        }
+        SharedPreferences shad = getSharedPreferences("email",MODE_PRIVATE);
+        String usemail = shad.getString("usermail","");
+        String uphone = shad.getString("userphone","");
+        Log.d("MainActivity3", "Retrieved value from SharedPreferences: " + usemail);
+        number.setText(uphone);
+        email.setText(usemail);
         toolbar = findViewById(R.id.toolbar);
         button = findViewById(R.id.button);
         setSupportActionBar(toolbar);
@@ -150,6 +154,17 @@ public class MainActivity13 extends AppCompatActivity {
                     occasion.setText("");
                     dateEditText.setText("");
                 }
+            }
+        });
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity13.this, MainActivity10.class);
+                String username = name.getText().toString();
+                intent.putExtra("keyname", username);
+                intent.putExtra("keyphone", userphone);
+                intent.putExtra("keymail", useremail);
+                startActivity(intent);
             }
         });
 

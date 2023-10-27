@@ -1,33 +1,51 @@
 package com.example.myapplication;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.PopupWindow;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.FirebaseOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.database.DataSnapshot;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
-
 public class MainActivity17 extends AppCompatActivity {
     private DatabaseReference databaseReference;
+
     private static final String HISTORY_PREFS_NAME = "HistoryPrefs";
     private static final String HISTORY_KEY = "HistoryList";
-
+    TextView textView,t1,t2,t3,t4,t5;
+    private DrawerLayout drawerLayout;
+    ImageView profile;
+    private ActionBarDrawerToggle actionBarDrawerToggle;
+    private Toolbar toolbar;
     private ListView historyListView;
     private ArrayAdapter<String> historyAdapter;
     private ArrayList<String> historyList;
@@ -37,149 +55,97 @@ public class MainActivity17 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main17);
+        toolbar = findViewById(R.id.toolbar);
+        profile = findViewById(R.id.imageView17);
         firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("Users");
+        t1 = findViewById(R.id.editTextText);
+        t2 = findViewById(R.id.editTextcity);
+        t3 = findViewById(R.id.editTextdate);
+        t4 = findViewById(R.id.editTextevent);
+        t5 = findViewById(R.id.editTextoccassion);
 
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        drawerLayout = findViewById(R.id.draw_layout);
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar,
+                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawerLayout.addDrawerListener(actionBarDrawerToggle);
+        actionBarDrawerToggle.syncState();
+        NavigationView navigationView=findViewById(R.id.nav_view);
+        navigationView.bringToFront();
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.navigation_drawer_open,R.string.navigation_drawer_close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
-                    // Get the values for each user using userSnapshot instead of dataSnapshot
-                    String username = userSnapshot.child("name").getValue(String.class);
-                    String email = userSnapshot.child("number").getValue(String.class);
-                    saveHistory(username);
-                    saveHistory(email);
-                    saveHistory("qawsedrft");
-                    saveHistory("plokijuhyg");
-                    saveHistory("mknjbhvgcf");
-                    saveHistory("uj12334");
-                    saveHistory("123456");
-
-                    // Do something with the data, e.g., display it in the log
-                    Log.d("MainActivity", "Username: " + username + ", Email: " + email);
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int itemid = item.getItemId();
+                if(itemid == R.id.performer1){
+                    Intent intent = new Intent(MainActivity17.this, MainActivity4.class);
+                    startActivity(intent);
+                    return true;
+                } else if (itemid==R.id.performer2) {
+                    Intent intent = new Intent(MainActivity17.this,MainActivity5.class);
+                    startActivity(intent);
+                } else if (itemid==R.id.performer3) {
+                    Intent intent = new Intent(MainActivity17.this,MainActivity6.class);
+                    startActivity(intent);
                 }
-                saveHistory("uj12334");
+                return false;
             }
+        });
+        Intent intent1 = getIntent();
+        String fmail = intent1.getStringExtra("fimail");
+        String hv = intent1.getStringExtra("msg");
+        String ujsinh = intent1.getStringExtra("nam");
+        Log.d("namee","user name issss : "+ujsinh);
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users/"+ujsinh);
 
+        profile.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                saveHistory("uj097");
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity17.this, MainActivity10.class);
+
+                startActivity(intent);
             }
         });
 
+       databaseReference.addValueEventListener(new ValueEventListener() {
 
-        String uj = "Urvrajsinh123456";
-        saveHistory(uj);
-        saveHistory("jadeja");
-        saveHistory("ujklp");
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
+                        // Get the values for each user using userSnapshot instead of dataSnapshot
+                        String number = dataSnapshot.child("number").getValue(String.class);
+                        String getcity = dataSnapshot.child("city").getValue(String.class);
+                        String getdate = dataSnapshot.child("date").getValue(String.class);
+                        String getevent = dataSnapshot.child("event").getValue(String.class);
+                        String getoccasion = dataSnapshot.child("occasion").getValue(String.class);
+                        Log.d("FirebaseData", "User Name: " + number);
+                        Log.d("FirebaseData", "User getcity: " + getcity);
+                        Log.d("FirebaseData", "User getdate: " + getdate);
+                        Log.d("FirebaseData", "User getevent: " + getevent);
+                        Log.d("FirebaseData", "User getoccasion: " + getoccasion);
+                        t1.setText("Number:        " + number);
+                        t2.setText("City:              " + getcity);
+                        t3.setText("Event date:    " + getdate);
+                        t4.setText("Event:           " + getevent);
+                        t5.setText("Occasion:      " + getoccasion);
+                        databaseReference.keepSynced(true);
+                        }
 
-        historyListView = findViewById(R.id.historyListView);
-        historyList = loadHistory();
 
-        // Set up the adapter to display the historyList
-        historyAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, historyList);
-        historyListView.setAdapter(historyAdapter);
-    }
+                }
 
-    private ArrayList<String> loadHistory() {
-        SharedPreferences historyPrefs = getSharedPreferences(HISTORY_PREFS_NAME, MODE_PRIVATE);
-        Set<String> historySet = historyPrefs.getStringSet(HISTORY_KEY, new HashSet<>());
-        return new ArrayList<>(historySet);
-    }
-    private void saveHistory(String historyItem) {
-        SharedPreferences historyPrefs = getSharedPreferences(HISTORY_PREFS_NAME, MODE_PRIVATE);
-        Set<String> historySet = historyPrefs.getStringSet(HISTORY_KEY, new HashSet<>());
-        historySet.add(historyItem);
 
-        // Save the updated set back to SharedPreferences
-        SharedPreferences.Editor editor = historyPrefs.edit();
-        editor.putStringSet(HISTORY_KEY, historySet);
-        editor.apply();
-    }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(MainActivity17.this, "Error", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+        }
+
+
 
 }
-
-//package com.example.myapplication;
-//
-//import android.annotation.SuppressLint;
-//import android.content.Intent;
-//import android.os.Bundle;
-//import android.util.Log;
-//import android.widget.TextView;
-//
-//import androidx.annotation.NonNull;
-//import androidx.appcompat.app.AppCompatActivity;
-//import androidx.constraintlayout.widget.ConstraintLayout;
-//
-//import com.google.firebase.database.DataSnapshot;
-//import com.google.firebase.database.DatabaseError;
-//import com.google.firebase.database.DatabaseReference;
-//import com.google.firebase.database.FirebaseDatabase;
-//import com.google.firebase.database.ValueEventListener;
-//
-//public class MainActivity17 extends AppCompatActivity {
-//    private DatabaseReference databaseReference;
-//    private TextView nameTextView, eventname, cityname, occasionname;
-//    private ConstraintLayout constraintLayout;
-//
-//    @SuppressLint("MissingInflatedId")
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main17);
-//
-//        constraintLayout = findViewById(R.id.constraint);
-//        nameTextView = findViewById(R.id.nameTextView);
-//        eventname = findViewById(R.id.eventname);
-//        cityname = findViewById(R.id.cityname);
-//        occasionname = findViewById(R.id.occasionname);
-//
-//        databaseReference = FirebaseDatabase.getInstance().getReference().child("Users");
-//
-//        Intent intent1 = getIntent();
-//        if (intent1.hasExtra("databasename") || intent1.hasExtra("")) {
-//
-//
-//            databaseReference.child(userName).addListenerForSingleValueEvent(new ValueEventListener() {
-//                @Override
-//                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                    // Your existing onDataChange code here
-//                    String name = dataSnapshot.child("name").getValue(String.class);
-//                    String number = dataSnapshot.child("number").getValue(String.class);
-//                    String city = dataSnapshot.child("city").getValue(String.class);
-//                    String event = dataSnapshot.child("event").getValue(String.class);
-//                    String date = dataSnapshot.child("date").getValue(String.class);
-//                    String occasion = dataSnapshot.child("occasion").getValue(String.class);
-//
-//                    // Now you can use this data as per your requirement, e.g., display it in TextViews.
-//                    // For example:
-//                    nameTextView = findViewById(R.id.nameTextView);
-//                    nameTextView.setText(date);
-//                    eventname = findViewById(R.id.eventname);
-//                    eventname.setText(event);
-//                    cityname = findViewById(R.id.cityname);
-//                    cityname.setText(city);
-//                    occasionname = findViewById(R.id.occasionname);
-//                    occasionname.setText(occasion);
-//                }
-//
-//                @Override
-//                public void onCancelled(@NonNull DatabaseError databaseError) {
-//                    Log.e("MainActivity17", "Error fetching data: " + databaseError.getMessage());
-//                }
-//            });
-//
-//        } else {
-//            // Handle case where intent extra is missing or null
-//            nameTextView = findViewById(R.id.nameTextView);
-//            nameTextView.setText("date");
-//            eventname = findViewById(R.id.eventname);
-//            eventname.setText("event");
-//            cityname = findViewById(R.id.cityname);
-//            cityname.setText("city");
-//            occasionname = findViewById(R.id.occasionname);
-//            occasionname.setText("occasion");
-//            Log.e("MainActivity17", "Intent extra 'databasename' is missing or null.");
-//        }
-//    }
-//}

@@ -11,12 +11,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity15 extends AppCompatActivity {
     private Toolbar toolbar;
+    ImageView profile;
     private DrawerLayout drawerLayout;
     private CardView  comedians, dancers, magicians, musicians;
     TextView actors,singers;
@@ -24,7 +26,7 @@ public class MainActivity15 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main15);
-
+        profile = findViewById(R.id.imageView17);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -39,6 +41,13 @@ public class MainActivity15 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity15.this, MainActivity16.class);
+                startActivity(intent);
+            }
+        });
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity15.this, MainActivity10.class);
                 startActivity(intent);
             }
         });

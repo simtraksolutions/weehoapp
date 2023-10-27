@@ -17,6 +17,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/mandeepsingh" />
 
+
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView9"
         android:layout_width="@dimen/_289sdp"
@@ -141,8 +143,23 @@ Mandeep is just 23 years old and his acting skills are beyond expectations. Soci
                     android:text="Once speaking about his experience he has shared that his life did not change overnight. He had to work hard and struggle in the industry to get the recognition that he got today. He would strive day and night to achieve that one dream of becoming an actor which now has become a reality by his dedication to constantly improve and get better."
                     android:textColor="@color/black" />
 
+
+
             </LinearLayout>
+
         </ScrollView>
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_170sdp"
+            android:layout_gravity="center_vertical|center"
+            android:backgroundTint="#F44336"
+            android:text="Book event"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

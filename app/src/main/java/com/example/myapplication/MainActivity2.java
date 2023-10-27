@@ -1,14 +1,15 @@
 package com.example.myapplication;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
-
+import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.Uri;
+import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
-import android.text.InputFilter;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -16,125 +17,254 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.os.Bundle;
-
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import android.app.DatePickerDialog;
-import android.provider.Settings;
-import android.view.Menu;
-import android.view.MenuItem;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.material.navigation.NavigationView;
-
-import android.widget.DatePicker;
-import java.util.Calendar;
-import android.content.Intent;
-import android.net.Uri;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.ArrayAdapter;
-
-import com.google.android.gms.auth.api.identity.BeginSignInRequest;
-import com.google.android.gms.auth.api.identity.Identity;
-import com.google.android.gms.auth.api.identity.SignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
 
 import java.util.concurrent.TimeUnit;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 
 
 public class MainActivity2 extends AppCompatActivity {
-    private SignInClient oneTapClient;
-    private int RC_SIGN_IN=100;
-    private String[] countryCodes = {"+1", "+91", "+44", "+86", "+81"};
     private Button buttonlogin;
-    TextView account,forgot;
-    FirebaseAuth auth;
+    private SharedPreferences sharedPreferences;
+    CardView phonenumbercard;
+    private SharedPreferences.Editor editor;
+    private static final int RC_SIGN_IN = 100;
+    private boolean userConfirmed ; // Initialize it to false initially
+    private boolean userConfirmedp = false; // Initialize it to false initially
+
+    private GoogleSignInClient mGoogleSignInClient;
     private Toolbar toolbar;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
+    private EditText Email, Password, Phone, Code;
+    TextView account,forgot,showpass,phonetext,emailtext;
 
+    private FirebaseAuth auth;
+    private ProgressBar progressBar;
 
-    private EditText Email,Password,Phone,Code;
-    String texte ,textp;
-    GoogleSignInClient mGoogleSignInClient;
-    private BeginSignInRequest signUpRequest;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-        buttonlogin=findViewById(R.id.button3);
-        account = findViewById(R.id.textView3);
-        forgot=findViewById(R.id.textView2);
-        Email=findViewById(R.id.editTextTextEmailAddress2);
-        Password=findViewById(R.id.editTextTextPassword);
-        Phone=findViewById(R.id.editTextPhone2);
-        Code = findViewById(R.id.autoCompleteTextViewCountryCode1);
-        auth = FirebaseAuth.getInstance();
-        toolbar = findViewById(R.id.toolbarl);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-        NavigationView navigationView = findViewById(R.id.nav_view2);
-        drawerLayout = findViewById(R.id.drawer_layoutl);
-        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar,
-                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawerLayout.addDrawerListener(actionBarDrawerToggle);
-
-        actionBarDrawerToggle.syncState();
-        navigationView.bringToFront();
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.navigation_drawer_open,R.string.navigation_drawer_close);
-        drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+        account = findViewById(R.id.textViewsign);
+        Email = findViewById(R.id.editTextTextEmailAddress2);
+        Password = findViewById(R.id.editTextTextPassword);
+        Phone = findViewById(R.id.editTextPhone2);
+        progressBar = findViewById(R.id.progressbar1);
+        phonenumbercard = findViewById(R.id.cardView8);
+        GradientDrawable customDrawable = new GradientDrawable();
+        customDrawable.setColor(Color.parseColor("#F44336"));
+        Intent iname = getIntent();
+        String nameu = iname.getStringExtra("nameuf");
+        String phoneu = iname.getStringExtra("phoneuf");
+        String emailu = iname.getStringExtra("emailuf");
+        String userp = Phone.getText().toString().trim();
+        String pass = Password.getText().toString().trim();
+//        toggleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                // Handle toggle button state change here
+//                if (isChecked) {
+//                    phonenumbercard.setVisibility(View.VISIBLE);
+//                    emailtext.setBackgroundColor(colorwhite);
+//                    emailtext.setTextColor(colorblack);
+//                    toggleButton.setThumbDrawable(getResources().getDrawable(R.drawable.your_thumb_drawable));
+//                    phonetext.setTextColor(colorwhite);
+//                    phonetext.setBackgroundColor(color);
+//                    Email.setError(null);
+//
+//                    if(Phone.getText().toString().trim().isEmpty()){
+//                        showErrorDialog("Enter Phone Number", "Please enter a phone number.");
+//                    }else if (!isValidPhone()) {
+//                        showErrorDialog("Invalid Phone Number", "Please enter a valid phone number.");
+//                    }
+//                } else {
+//
+//                    phonenumbercard.setVisibility(View.GONE);
+//                    emailtext.setBackgroundColor(color);
+//                    phonetext.setBackgroundColor(colorwhite);
+//                    toggleButton.setThumbDrawable(getResources().getDrawable(R.drawable.your_thumb_disable ));
+//                    phonetext.setTextColor(colorblack);
+//                    emailtext.setTextColor(colorwhite);
+//
+//                }
+//            }
+//        });
+        String text = Email.getText().toString();
+        Email.addTextChangedListener(new TextWatcher() {
             @Override
-            public boolean onNavigationItemSelected(MenuItem item) {
-                int itemid = item.getItemId();
-                if(itemid == R.id.performer1){
-                    Intent intent = new Intent(MainActivity2.this, MainActivity4.class);
-                    startActivity(intent);
-                    return true;
-                } else if (itemid==R.id.performer2) {
-                    Intent intent = new Intent(MainActivity2.this,MainActivity5.class);
-                    startActivity(intent);
-                } else if (itemid==R.id.performer3) {
-                    Intent intent = new Intent(MainActivity2.this,MainActivity6.class);
-                    startActivity(intent);
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (isEmail(text)) {//do your stuff}
+                    if (isPhone(text)) {//do your stuff}
+                    }
                 }
-                return false;
+            }
+        });
+
+        Email.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                validateEmail(s.toString());
 
             }
         });
-        ProgressBar progressBar = findViewById(R.id.progrssbar);
+
+        SharedPreferences sharedPreferences = getSharedPreferences("login",MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+
+        if(sharedPreferences.getString("islogin","false").equals("yes")){
+            editor.putString("islogin","yes");
+            String usermail = Email.getText().toString();
+            String userphone = Phone.getText().toString();
+            editor.putString("fmail",usermail);
+            editor.putString("fphone",userphone);
+            editor.commit();
+            SharedPreferences getsharedPreferences = getSharedPreferences("login", MODE_PRIVATE);
+            String retrievedEmail = sharedPreferences.getString("fmail", "defaultEmail");
+            String retrievedPhone = sharedPreferences.getString("fphone", "defaultPhone");
+
+            Intent intentE = new Intent(MainActivity2.this, MainActivity12.class);
+            intentE.putExtra("mail1",retrievedEmail);
+            intentE.putExtra("phone1",retrievedPhone);
+            startActivity(intentE);
+        }
+
+
+
+        showpass = findViewById(R.id.textView26);
+        Drawable menuIcon = getResources().getDrawable(R.drawable.menu_icon);
+
+
+
+
+
+        SharedPreferences shad = getSharedPreferences("email", MODE_PRIVATE);
+        String usemail = shad.getString("usermail", "");
+        Log.d("MainActivity3", "Retrieved value from SharedPreferences: " + usemail);
+
+        showpass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(Password.getInputType()==144){
+                    Password.setInputType(129);
+                    showpass.setText("Show");
+                }else{
+                    Password.setInputType(144);
+                    showpass.setText("Hide");
+                }
+                Password.setSelection(Password.getText().length());
+            }
+        });
+
+
+        initializeViews();
+
+
+        buttonlogin.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                String finaltext = Email.getText().toString().trim();
+                String password  = Password.getText().toString().trim();
+                if (isEmail(finaltext)) {
+                        if ((validateEmail(finaltext)==false && password.isEmpty()) || (finaltext.isEmpty() || password.isEmpty()) ){
+                            showErrorDialog("Empty Fields", "Please fill in all the required fields.");
+                        }
+                            else {
+                                String email = Email.getText().toString().trim();
+                                String userphone = Phone.getText().toString().trim();
+//                                if ((email.isEmpty() && password.isEmpty()) || (email.isEmpty() || password.isEmpty())){
+//                                    showErrorDialog("Enter Details", "Please enter all fields");
+//                                }else {
+                                    auth.signInWithEmailAndPassword(email, password)
+                                            .addOnCompleteListener(MainActivity2.this, new OnCompleteListener<AuthResult>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                                    if (task.isSuccessful()) {
+                                                        // Authentication successful, user is signed in.
+                                                        FirebaseUser user = auth.getCurrentUser();
+                                                        Toast.makeText(MainActivity2.this, "loadingggggg", Toast.LENGTH_SHORT).show();
+                                                        showConfirmationDialog(email, password);
+                                                        // You can do further actions here, such as navigating to another activity.
+                                                    } else {
+                                                        // Authentication failed, handle the error.
+                                                        showErrorDialog("Authentication Failed", "Invalid email or password.");
+                                                    }
+
+                                                }
+                                            });
+//                            }
+                    }
+                } else if(isPhone(finaltext)) {
+                    if(isValidPhone(finaltext)){
+                        showConfirmationDialogP(userp,pass);
+                        progressBar.setVisibility(View.VISIBLE);
+                        SharedPreferences shad = getSharedPreferences("email", MODE_PRIVATE);
+                        SharedPreferences.Editor editorf = shad.edit();
+                        String finalphone = Phone.getText().toString();
+                        String finalemail = Email.getText().toString();
+                        String h1 = phoneu;
+                        String h2 = emailu;
+                        editorf.putString("usermail",h1);
+                        editorf.putString("userphone", h2);
+                        editorf.apply();
+
+                        Log.d("MainActivity2", "Value helloooo set in SharedPreferences: " );
+
+                        Toast.makeText(MainActivity2.this, "Loading...", Toast.LENGTH_SHORT).show();
+                    }else{
+                        showErrorDialog("Invalid Input", "Please enter a valid phone number.");
+                    }
+                }
+                else {
+                    showErrorDialog("Invalid Input", "Please enter a valid email address or phone number.");
+                }
+            }
+        });
+
         account.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -149,189 +279,247 @@ public class MainActivity2 extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        int maxlength = 10;
-        Phone.setFilters(new InputFilter[]{new InputFilter.LengthFilter(maxlength)});
+
+    }
+
+            private void initializeViews() {
+        buttonlogin = findViewById(R.id.button3);
+
+
+        forgot = findViewById(R.id.textView2);
+        Code = findViewById(R.id.autoCompleteTextViewCountryCode1);
+        auth = FirebaseAuth.getInstance();
+
+    }
+    private void configureGoogleSignIn() {
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-
-
-        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
-        SignInButton signInButton = findViewById(R.id.sign_in_button);
-        signInButton.setSize(SignInButton.SIZE_STANDARD);
-        signInButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                signIn();
-            }
-        });
-        oneTapClient = Identity.getSignInClient(this);
-        signUpRequest = BeginSignInRequest.builder()
-                .setGoogleIdTokenRequestOptions(BeginSignInRequest.GoogleIdTokenRequestOptions.builder()
-                        .setSupported(true)
-
-                        .setServerClientId(getString(R.string.web_client_id))
-
-                        .setFilterByAuthorizedAccounts(false)
-                        .build())
-                .build();
-        buttonlogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (isempty()){
-                    AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity2.this);
-                    builder.setTitle("Empty Fields")
-                            .setMessage("Please fill in all the required fields.")
-                            .setPositiveButton("OK", null)
-                            .show();
-                } else if (isvalidE()==false) {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity2.this);
-                    builder.setTitle("Email address")
-                            .setMessage("Please enter valid email address.")
-                            .setPositiveButton("OK",null)
-                            .show();
-                }else{
-                            vaildata();
-
-                                    progressBar.setVisibility(View.VISIBLE);
-                                    buttonlogin.setVisibility(View.INVISIBLE);
-                                PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                                "+91 "+Phone.getText().toString(),
-                                60,
-                                TimeUnit.SECONDS,
-                                MainActivity2.this,
-                                new PhoneAuthProvider.OnVerificationStateChangedCallbacks(){
-                                    @Override
-                                    public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
-                                            progressBar.setVisibility(View.GONE);
-                                            buttonlogin.setVisibility(View.VISIBLE);
-                                    }
-
-                                    @Override
-                                    public void onVerificationFailed(@NonNull FirebaseException e) {
-                                        progressBar.setVisibility(View.GONE);
-                                        buttonlogin.setVisibility(View.VISIBLE);
-                                        Toast.makeText(MainActivity2.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                                    }
-
-                                    @Override
-                                    public void onCodeSent(@NonNull String verificationid, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
-                                        progressBar.setVisibility(View.GONE);
-                                        buttonlogin.setVisibility(View.VISIBLE);
-                                        Intent intent = new Intent(MainActivity2.this, MainActivity7.class);
-                                        intent.putExtra("mobile",Phone.getText().toString());
-                                        intent.putExtra("verificationid",verificationid);
-                                        String userphone = Phone.getText().toString();
-                                        String useremail = Email.getText().toString();
-                                        String usercode = Code.getText().toString();
-                                        intent.putExtra("keymail",useremail);
-                                        intent.putExtra("keyphone",userphone);
-                                        intent.putExtra("keycode",usercode);
-                                        startActivity(intent);
-                                    }
-                                }
-                        );
-
-
-                }
-            }
-        });
     }
-
-
-    private void vaildata() {
-        texte = Email.getText().toString().trim();
-        textp = Password.getText().toString().trim();
-        if (texte.isEmpty() || textp.isEmpty()){
-            Toast.makeText(this, "Please provide all fields.", Toast.LENGTH_SHORT).show();
-        }else{
-            user();
-        }
-    }
-
-
-
-    private void user() {
-        auth.signInWithEmailAndPassword(texte,textp).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()){
-                    Intent intent = new Intent(MainActivity2.this,MainActivity7.class);
-                    startActivity(intent);
-                    finish();
-                }else {
-                    Toast.makeText(MainActivity2.this, "Error"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                }
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(MainActivity2.this, "Error"+e.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
-    private void signIn() {
+    private void signInWithGoogle() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+    private void validateData() {
+        String email = Email.getText().toString().trim();
+        String password = Password.getText().toString().trim();
+
+        String userphone = Email.getText().toString();
+
+
+        // Send verification code and authenticate with Firebase
+        sendVerificationCode("+91" + userphone, email, password);
+
+
+    }
+
+    private void sendVerificationCode(String phoneNumber, String email, String password) {
+        progressBar.setVisibility(View.GONE);
+        buttonlogin.setVisibility(View.INVISIBLE);
+
+        PhoneAuthProvider.getInstance().verifyPhoneNumber(
+                phoneNumber,
+                60,
+                TimeUnit.SECONDS,
+                this,
+                new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+                    @Override
+                    public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
+                        // Verification completed, now authenticate with Firebase
+                        progressBar.setVisibility(View.VISIBLE);
+                        buttonlogin.setVisibility(View.INVISIBLE);
+                        String userphone = Email.getText().toString();
+                        authenticateWithFirebase(email, password,userphone);
+                        showConfirmationDialogP(userphone,password);
+                    }
+
+                    @Override
+                    public void onVerificationFailed(@NonNull FirebaseException e) {
+                        // Verification process failed
+                        progressBar.setVisibility(View.GONE);
+                        buttonlogin.setVisibility(View.VISIBLE);
+                        Toast.makeText(MainActivity2.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                        showErrorDialog("Verification Failed", "Phone number verification failed.");
+                    }
+
+                    @Override
+                    public void onCodeSent(@NonNull String verificationId, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
+                        // Code sent to user's phone, store the verification ID for later use
+                        progressBar.setVisibility(View.VISIBLE);
+                        buttonlogin.setVisibility(View.INVISIBLE);
+                        Intent iname = getIntent();
+                        String nameu = iname.getStringExtra("nameuf");
+                        String phoneu = iname.getStringExtra("phoneuf");
+                        String emailu = iname.getStringExtra("emailuf");
+                        String email = Email.getText().toString();
+                        String usercode = Code.getText().toString();
+                        String userphone = Email.getText().toString();
+                        Intent intent = new Intent(MainActivity2.this, MainActivity7.class);
+                        intent.putExtra("verificationid", verificationId);
+                        intent.putExtra("keymail",emailu);
+                        intent.putExtra("keyphone", userphone);
+                        Log.d("MainActivity2","sent emailu is "+emailu);
+                        Log.d("MainActivity2","sent name is "+phoneu);
+                        intent.putExtra("keycode", usercode);
+                        startActivity(intent);
+                    }
+                }
+        );
+    }
+
+    private void authenticateWithFirebase(String email, String password ,String userphone) {
+        auth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Authentication successful, proceed to the next screen
+                            // You can start your MainActivity here
+                            sendVerificationCode("+91" + userphone, email, password);
+
+                        } else {
+                            // Authentication failed, show error dialog
+                            showErrorDialog("Authentication Error", "Invalid email or password.");
+                        }
+
+                        progressBar.setVisibility(View.GONE);
+                        buttonlogin.setVisibility(View.VISIBLE);
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        // Handle authentication failure
+                        showErrorDialog("Authentication Error", "An error occurred during authentication.");
+                        progressBar.setVisibility(View.GONE);
+                        buttonlogin.setVisibility(View.VISIBLE);
+                    }
+                });
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-
         if (requestCode == RC_SIGN_IN) {
-
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-            handleSignInResult(task);
+            handleGoogleSignInResult(task);
         }
     }
-    private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
+
+    private void handleGoogleSignInResult(Task<GoogleSignInAccount> completedTask) {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
-            GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
-            if (acct != null) {
-                String personName = acct.getDisplayName();
-                String personGivenName = acct.getGivenName();
-                String personFamilyName = acct.getFamilyName();
-                String personEmail = acct.getEmail();
-                String personId = acct.getId();
-                Uri personPhoto = acct.getPhotoUrl();
-                Toast.makeText(this, ":User email : "+personEmail, Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(MainActivity2.this,MainActivity3.class);
-                String usermail1=personEmail.toString();
-                intent.putExtra("keymail1",usermail1);
+            if (account != null) {
+                // You can use account to get user details or proceed to the next screen
+                String personEmail = account.getEmail();
+                Intent intent = new Intent(MainActivity2.this, MainActivity3.class);
+                intent.putExtra("keymail1", personEmail);
                 startActivity(intent);
             }
-
-
         } catch (ApiException e) {
+            // Handle Google sign-in failure
+            showErrorDialog("Google Sign-In Error", "Google sign-in failed.");
+        }
+    }
 
-            Log.d("Message",e.toString());
-        }
+
+    private void showErrorDialog(String title, String message) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity2.this);
+        builder.setTitle(title)
+                .setMessage(message)
+                .setPositiveButton("OK", null)
+                .show();
     }
-    private boolean isempty(){
-        String textE=Email.getText().toString().trim();
-        String textP=Password.getText().toString().trim();
-        String textPh=Phone.getText().toString().trim();
-        if (textE.isEmpty()){
-            return textE.isEmpty();
-        } else if (textP.isEmpty()) {
-            return textP.isEmpty();
-        } else if (textPh.isEmpty()) {
-                return textPh.isEmpty();
-        } else{
-            return textE.isEmpty() && textP.isEmpty() && textPh.isEmpty();
-        }
+
+    private boolean isEmpty() {
+        return Email.getText().toString().trim().isEmpty() &&
+                Password.getText().toString().trim().isEmpty() ;
+
     }
-    private boolean isvalidE(){
-        String isE = Email.getText().toString().trim();
-        if (isE.contains("@gmail.com")){
+
+
+
+    private boolean isValidPhone(String phonenumber) {
+        String phone = "^[0-9]{10}$";
+        if (!Pattern.matches(phone, phonenumber)){
+            Email.setError("Invalid phone number (must contain 10 digits)");
+            return false;
+        }else{
+            Email.setError(null); // Clear any previous error
             return true;
         }
-        return false;
     }
+    private boolean validateEmail(String email) {
+        String emailPattern = "^[A-Za-z0-9+_.-]+@(.+)$";
 
+        if (!Pattern.matches(emailPattern, email)) {
+            Phone.setError("Invalid email address");
+            return false;
+        } else {
+            Phone.setError(null); // Clear any previous error
+            return true;
+        }
+    }
+    private void showConfirmationDialog(String email, String password) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Confirm Login")
+                .setMessage("Do you want to log in with the provided credentials?")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // User clicked "Yes," proceed with login
+
+                        auth.signInWithEmailAndPassword(email,password);
+                        progressBar.setVisibility(View.VISIBLE);
+                        buttonlogin.setVisibility(View.INVISIBLE);
+                        Intent intent = new Intent(MainActivity2.this, MainActivity12.class);
+                        startActivity(intent);
+
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // User clicked "No," do not proceed with login
+                        userConfirmed = false;
+                    }
+                })
+                .show();
+    }
+    private void showConfirmationDialogP(String userphone, String password) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity2.this);
+        builder.setTitle("Confirm Login")
+                .setMessage("Do you want to log in with the provided credentials?")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // User clicked "Yes," proceed with login
+                       validateData();
+                        progressBar.setVisibility(View.VISIBLE);
+
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // User clicked "No," do not proceed with login
+                        Toast.makeText(MainActivity2.this, "Big prablem", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .show();
+    }
+            public static boolean isEmail(String text) {
+                String expression = "^[A-Za-z0-9+_.-]+@(.+)$";
+                Pattern p = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
+                Matcher m = p.matcher(text);
+                return m.matches();
+            }
+
+            public static boolean isPhone(String text) {
+                return text.matches("[0-9]+");
+            }
 }

@@ -3,11 +3,71 @@
     <string name="navigation_drawer_open">Open Drawer</string>
     <string name="web_client_id">98702491949-8c4s2fm03bss8j18vav309lai847imfj.apps.googleusercontent.com</string>
     <string name="navigation_drawer_close">Close Drawer</string>
+    <string name="bulleted_list">
+    <ul><li>Birthday Parties</li>\n<li>Friends Parties</li>\n<li>Family Get-Together</li>\n</ul>
+    </string>
+
     <string-array name="dropdown_items">
-        <item>Dancing </item>
-        <item>Magic </item>
-        <item>Music</item>
+
+        <item>Select an occasion  </item>
+        <item>Personal Parties </item>
+        <item>Personal Ceremony </item>
+        <item>Corporate Parties </item>
+        <item>Corporate Celebration </item>
+        <item>MICE events </item>
+        <item>Others.. </item>
+        <!-- Button label -->
+
+
     </string-array>
+
+    <string-array name="state_name">
+
+        <item>Select State  </item>
+        <item>Andhra Pradesh  </item>
+        <item>Arunachal Pradesh </item>
+        <item>Assam </item>
+        <item>Bihar </item>
+        <item>Chhattisgarh </item>
+        <item>Goa </item>
+        <item>Gujarat </item>
+        <item>Haryana </item>
+        <item>Himachal Pradesh </item>
+        <item>Jharkhand </item>
+        <item>Karnataka </item>
+        <item>Kerala </item>
+        <item>Madhya Pradesh </item>
+        <item>Maharashtra </item>
+        <item>Manipur  </item>
+        <item>Meghalaya</item>
+        <item>Mizoram</item>
+        <item>Nagaland</item>
+        <item>Odisha </item>
+        <item>Punjab </item>
+        <item>Rajasthan </item>
+        <item>Sikkim </item>
+        <item>Tamil Nadu </item>
+        <item>Telangana </item>
+        <item>Tripura </item>
+        <item>Uttar Pradesh </item>
+        <item>Uttrakhand </item>
+        <item>West Bengal </item>
+        <!-- Button label -->
+
+
+    </string-array>
+    <string name="reset_button_label">Reset Password</string>
+    <string name="app_namedfinal">Weeho</string>
+    <!-- Toast messages -->
+    <string name="email_required">Email is required</string>
+    <string name="invalid_email_format">Invalid email format</string>
+    <string name="reset_email_sent">Password reset email sent. Check your email.</string>
+    <string name="email_not_found">This email is not registered</string>
+    <string name="reset_email_failed">Password reset email failed</string>
+
+    <!-- Other strings -->
+    <!-- Add any other strings your app might use here -->
+
     <string name="title_activity_main13">MainActivity13</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item name="editTextText" type="id" />
-    <item name="text_number" type="id" />
-    <item name="navHostFragment" type="id" />
-    <item name="MainActivity4" type="id" />
-    <item name="textView43" type="id" />
-    <item name="cityname" type="id" />
-    <item name="occasionname" type="id" />
-    <item name="textView41" type="id" />
-    <item name="eventname" type="id" />
-    <item name="nameTextView" type="id" />
-    <item name="textView37" type="id" />
+        <item name="editTextText" type="id" />
+        <item name="text_number" type="id" />
+        <item name="navHostFragment" type="id" />
+        <item name="MainActivity4" type="id" />
+        <item name="textView43" type="id" />
+        <item name="cityname" type="id" />
+        <item name="occasionname" type="id" />
+        <item name="textView41" type="id" />
+        <item name="eventname" type="id" />
+        <item name="nameTextView" type="id" />
+        <item name="textView37" type="id" />
 </resources>

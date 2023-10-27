@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D6D6D6">
+
+    <LinearLayout
+        android:id="@+id/layout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/popup"
+        android:padding="@dimen/_15sdp"
+        android:layout_margin="@dimen/_10sdp">
+        <TextView
+            android:id="@+id/welcomemsg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:fontFamily="serif"
+            android:text="Hello,Welcome to weeho "
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:textSize="@dimen/_16ssp"
+            android:layout_marginLeft="@dimen/_10sdp" />
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView4"
+            android:layout_width="@dimen/_229sdp"
+            android:layout_height="@dimen/_38sdp"
+            android:layout_marginTop="@dimen/_40sdp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardCornerRadius="@dimen/_8sdp"
+            app:cardElevation="@dimen/_4sdp"
+
+            >
+            <ImageView
+                android:id="@+id/imageViewNAME"
+                android:layout_width="@dimen/_26sdp"
+                android:layout_height="match_parent"
+                android:paddingLeft="@dimen/_10sdp"
+                android:paddingTop="@dimen/_2sdp"
+                app:srcCompat="@drawable/user" />
+            <EditText
+                android:id="@+id/editTextText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:ems="10"
+                android:background="@null"
+                android:fontFamily="@font/average_sans"
+                android:hint="Name"
+                android:inputType="text"
+                android:paddingLeft="@dimen/_38sdp"
+
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                 />
+        </androidx.cardview.widget.CardView>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_20sdp">
+            <TextView
+                android:id="@+id/namesubmit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Submit"
+                android:background="@drawable/popupbtn"
+                android:textColor="@color/white"
+                android:layout_alignParentEnd="true"
+                android:padding="@dimen/_5sdp"
+                android:layout_alignParentRight="true" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>
