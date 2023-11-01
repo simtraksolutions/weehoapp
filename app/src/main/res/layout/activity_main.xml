@@ -27,573 +27,948 @@
     </com.google.android.material.navigation.NavigationView>
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-
-
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
 
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_15sdp"
-            android:textSize="@dimen/_17sdp"
-            android:fontFamily="serif"
-            android:textStyle="bold"
-            android:text="What weeho does ?"
-            android:textColor="@color/black"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/creatcardevent"
-            tools:ignore="MissingConstraints" />
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:paddingHorizontal="@dimen/_20sdp"
-            android:fontFamily="sans-serif"
-            android:gravity="center_horizontal"
-            android:text="Weeho organize all types of events Our sole mission is aiming towards bringing your vision into reality and creating over-lasting memories of the remarkable event."
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:visibility="visible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:textSize="@dimen/_13ssp"
-            app:layout_constraintTop_toBottomOf="@+id/textView6" />
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardViewS"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_170sdp"
-            android:layout_marginHorizontal="@dimen/_20sdp"
-            android:visibility="gone"
-            android:layout_marginTop="@dimen/_10sdp"
-            app:cardBackgroundColor="#FFFFFF"
-            app:cardCornerRadius="@dimen/_8sdp"
-            app:cardElevation="@dimen/_4sdp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:ignore="MissingConstraints"
-            app:layout_constraintTop_toBottomOf="@+id/cardView4"
-            app:layout_constraintBottom_toTopOf="@id/cardViewf">
-
-
-        <TextView
-            android:id="@+id/textView388"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:paddingHorizontal="@dimen/_10sdp"
-            android:text="Celebrate the special moments in life with our unforgettable online birthday party experiences. Whether you're planning a surprise for a loved one or organizing your own celebration, we've got you covered. Our team of experts will help you create a virtual party that's just as exciting and engaging as an in-person event."
-            android:textColor="@color/black"
-            android:visibility="gone"
-            app:layout_constraintBottom_toTopOf="@id/textView39"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardView4"
-            app:layout_constraintVertical_bias="0.13" />
-            <Button
-                android:id="@+id/buttonreadmore"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_125sdp"
-                android:layout_marginBottom="@dimen/_10sdp"
-                android:text="Read More"
-                android:visibility="gone"
-                android:backgroundTint="#F44336"
-                android:textColor="@color/white"
-                app:layout_constraintBottom_toTopOf="@id/textView39"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.168"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView388" />
-
-            <Button
-                android:id="@+id/eventbook"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_125sdp"
-                android:layout_marginBottom="@dimen/_10sdp"
-                android:text="Book event"
-                android:layout_gravity="right"
-                android:visibility="gone"
-                android:backgroundTint="#F44336"
-                android:textColor="@color/white"
-                app:layout_constraintBottom_toTopOf="@id/textView39"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/buttonreadmore"
-                app:layout_constraintTop_toBottomOf="@+id/textView388"
-                tools:ignore="InvalidId,MissingConstraints" />
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardViewfp"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_170sdp"
-            android:layout_marginHorizontal="@dimen/_20sdp"
-            android:visibility="gone"
-            android:layout_marginTop="@dimen/_10sdp"
-            app:cardBackgroundColor="#FFFFFF"
-            app:cardCornerRadius="@dimen/_8sdp"
-            app:cardElevation="@dimen/_4sdp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:ignore="MissingConstraints"
-            app:layout_constraintTop_toBottomOf="@+id/cardViewf"
-            app:layout_constraintBottom_toTopOf="@id/cardViewf">
+            android:layout_height="wrap_content">
 
 
             <TextView
-                android:id="@+id/textViewf"
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:fontFamily="serif"
+                android:text="What weeho does ?"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_17sdp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/creatcardevent"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/textView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:paddingHorizontal="@dimen/_10sdp"
-                android:text="Celebrate the special moments in life with our unforgettable online birthday party experiences. Whether you're planning a surprise for a loved one or organizing your own celebration, we've got you covered. Our team of experts will help you create a virtual party that's just as exciting and engaging as an in-person event."
-                android:textColor="@color/black"
-                android:visibility="gone"
-                app:layout_constraintBottom_toTopOf="@id/textView39"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cardView4"
-                app:layout_constraintVertical_bias="0.13" />
-            <Button
-                android:id="@+id/buttonreadmoref"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_125sdp"
-                android:layout_marginBottom="@dimen/_10sdp"
-                android:text="Read More"
-                android:visibility="gone"
-                android:backgroundTint="#F44336"
-                android:textColor="@color/white"
-                app:layout_constraintBottom_toTopOf="@id/textView39"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.168"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView388" />
-
-            <Button
-                android:id="@+id/eventbookf"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_125sdp"
-                android:layout_marginBottom="@dimen/_10sdp"
-                android:text="Book event"
-                android:layout_gravity="right"
-                android:visibility="gone"
-                android:backgroundTint="#F44336"
-                android:textColor="@color/white"
-                app:layout_constraintBottom_toTopOf="@id/textView39"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/buttonreadmore"
-                app:layout_constraintTop_toBottomOf="@+id/textView388"
-                tools:ignore="InvalidId,MissingConstraints" />
-        </androidx.cardview.widget.CardView>
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:fontFamily="serif"
-            android:text="Types of events"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_17sdp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView5"
-            tools:ignore="MissingConstraints" />
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView4"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_28sdp"
-            android:layout_marginHorizontal="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            app:cardBackgroundColor="#FFFFFF"
-            app:cardCornerRadius="@dimen/_8sdp"
-            app:cardElevation="@dimen/_4sdp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:ignore="MissingConstraints"
-            app:layout_constraintTop_toBottomOf="@+id/textView4">
-
-
-                    <TextView
-                        android:id="@+id/textView38"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="@dimen/_10sdp"
-                        android:text="Birthday Parties"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_13ssp"
-                        android:layout_gravity="center_vertical"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.11"
-                        app:layout_constraintStart_toStartOf="parent"
-                         />
-
-                            <ImageView
-                                android:id="@+id/imageView29"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="right"
-                                android:paddingTop="@dimen/_5sdp"
-                                android:visibility="gone"
-                                android:paddingRight="@dimen/_10sdp"
-                                app:srcCompat="@drawable/uparrow"
-                                android:contentDescription="TODO" />
-                            <ImageView
-                                android:id="@+id/imageView3"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="right"
-                                android:paddingTop="@dimen/_5sdp"
-                                android:visibility="visible"
-                                android:paddingRight="@dimen/_10sdp"
-                                app:srcCompat="@drawable/downarrow"
-                                android:contentDescription="TODO" />
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardViewf"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_28sdp"
-            android:layout_marginHorizontal="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            app:cardBackgroundColor="#FFFFFF"
-            app:cardCornerRadius="@dimen/_8sdp"
-            app:cardElevation="@dimen/_4sdp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardViewS"
-            tools:ignore="MissingConstraints">
-
-
-        <TextView
-            android:id="@+id/textView39"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="@dimen/_10sdp"
-            android:text="Friends Parties"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_13ssp"
-            android:layout_gravity="center_vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.11"
-            app:layout_constraintStart_toStartOf="parent" />
-            <ImageView
-                android:id="@+id/imageViewf"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:paddingTop="@dimen/_5sdp"
-                android:visibility="gone"
-                android:paddingRight="@dimen/_10sdp"
-                app:srcCompat="@drawable/uparrow"
-                android:contentDescription="TODO" />
-            <ImageView
-                android:id="@+id/imageViewfriends"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:paddingTop="@dimen/_5sdp"
-                android:visibility="visible"
-                android:paddingRight="@dimen/_10sdp"
-                app:srcCompat="@drawable/downarrow"
-                android:contentDescription="TODO" />
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardViewC"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_28sdp"
-            android:layout_marginHorizontal="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            app:cardBackgroundColor="#FFFFFF"
-            app:cardCornerRadius="@dimen/_8sdp"
-            app:cardElevation="@dimen/_4sdp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardViewf"
-            tools:ignore="MissingConstraints">
-
-
-        <TextView
-            android:id="@+id/textView40"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="@dimen/_10sdp"
-            android:text="Corporate Parties"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_13ssp"
-            android:layout_gravity="center_vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.11"
-            app:layout_constraintStart_toStartOf="parent" />
-            <ImageView
-                android:id="@+id/imageViewcorpar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:paddingTop="@dimen/_5sdp"
-                android:visibility="visible"
-                android:paddingRight="@dimen/_10sdp"
-                app:srcCompat="@drawable/downarrow"
-                android:contentDescription="TODO" />
-            <ImageView
-                android:id="@+id/imageViewc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:paddingTop="@dimen/_5sdp"
-                android:visibility="gone"
-                android:paddingRight="@dimen/_10sdp"
-                app:srcCompat="@drawable/uparrow"
-                android:contentDescription="TODO" />
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardViewP"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_28sdp"
-            android:layout_marginHorizontal="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            app:cardBackgroundColor="#FFFFFF"
-            app:cardCornerRadius="@dimen/_8sdp"
-            app:cardElevation="@dimen/_4sdp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardViewC"
-            tools:ignore="MissingConstraints">
-
-
-        <TextView
-            android:id="@+id/textView42"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="@dimen/_10sdp"
-            android:text="Personal Ceremony"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_13ssp"
-            android:layout_gravity="center_vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.11"
-            app:layout_constraintStart_toStartOf="parent" />
-
-            <ImageView
-                android:id="@+id/imageViewp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:paddingTop="@dimen/_5sdp"
-                android:visibility="gone"
-                android:paddingRight="@dimen/_10sdp"
-                app:srcCompat="@drawable/uparrow"
-                android:contentDescription="TODO" />
-            <ImageView
-                android:id="@+id/imageViewpersoc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:paddingTop="@dimen/_5sdp"
-                android:visibility="visible"
-                android:paddingRight="@dimen/_10sdp"
-                app:srcCompat="@drawable/downarrow"
-                android:contentDescription="TODO" />
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardViewCOP"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_28sdp"
-            android:layout_marginHorizontal="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            app:cardBackgroundColor="#FFFFFF"
-            app:cardCornerRadius="@dimen/_8sdp"
-            app:cardElevation="@dimen/_4sdp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardViewP"
-            tools:ignore="MissingConstraints">
-
-
-        <TextView
-            android:id="@+id/textView44"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="@dimen/_10sdp"
-            android:text="Family get-together"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_13ssp"
-            android:layout_gravity="center_vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.11"
-            app:layout_constraintStart_toStartOf="parent"/>
-
-            <ImageView
-                android:id="@+id/imageViewcop"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:paddingTop="@dimen/_5sdp"
-                android:visibility="gone"
-                android:paddingRight="@dimen/_10sdp"
-                app:srcCompat="@drawable/uparrow"
-                android:contentDescription="TODO" />
-            <ImageView
-                android:id="@+id/imageViewfamily"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:paddingTop="@dimen/_5sdp"
-                android:visibility="visible"
-                android:paddingRight="@dimen/_10sdp"
-                app:srcCompat="@drawable/downarrow"
-                android:contentDescription="TODO" />
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardViewCOCELE"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_28sdp"
-            android:layout_marginHorizontal="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            app:cardBackgroundColor="#FFFFFF"
-            app:cardCornerRadius="@dimen/_8sdp"
-            app:cardElevation="@dimen/_4sdp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardViewCOP"
-            tools:ignore="MissingConstraints">
-
-
-        <TextView
-            android:id="@+id/textView45"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="@dimen/_10sdp"
-            android:text="Corporate Celebration"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_13ssp"
-            android:layout_gravity="center_vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.11"
-            app:layout_constraintStart_toStartOf="parent" />
-            <ImageView
-                android:id="@+id/imageViewcocele"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:paddingTop="@dimen/_5sdp"
-                android:visibility="gone"
-                android:paddingRight="@dimen/_10sdp"
-                app:srcCompat="@drawable/uparrow"
-                android:contentDescription="TODO" />
-            <ImageView
-                android:id="@+id/imageViewcocel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:paddingTop="@dimen/_5sdp"
-                android:visibility="visible"
-                android:paddingRight="@dimen/_10sdp"
-                app:srcCompat="@drawable/downarrow"
-                android:contentDescription="TODO" />
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardViewMICE"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_28sdp"
-            android:layout_marginHorizontal="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            app:cardBackgroundColor="#FFFFFF"
-            app:cardCornerRadius="@dimen/_8sdp"
-            app:cardElevation="@dimen/_4sdp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardViewCOCELE"
-            tools:ignore="MissingConstraints">
-
-
-            <TextView
-                android:id="@+id/textView47"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:paddingLeft="@dimen/_10sdp"
-                android:text="MICE Events"
+                android:fontFamily="sans-serif"
+                android:gravity="center_horizontal"
+                android:paddingHorizontal="@dimen/_20sdp"
+                android:text="Weeho organize all types of events Our sole mission is aiming towards bringing your vision into reality and creating over-lasting memories of the remarkable event."
+                android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_13ssp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.11"
-                app:layout_constraintStart_toStartOf="parent" />
-            <ImageView
-                android:id="@+id/imageViewmice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:paddingTop="@dimen/_5sdp"
                 android:visibility="visible"
-                android:paddingRight="@dimen/_10sdp"
-                app:srcCompat="@drawable/downarrow"
-                android:contentDescription="TODO" />
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-            android:id="@+id/creatcardevent"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_60sdp"
-            android:layout_marginHorizontal="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            app:cardBackgroundColor="#FFFFFF"
-            app:cardCornerRadius="@dimen/_8sdp"
-            app:cardElevation="@dimen/_4sdp"
-
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints">
-
-
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:background="@color/white"
-                android:minHeight="?attr/actionBarSize"
-                android:theme="@style/Mytoolbartheme"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="-@dimen/_97sdp"
-                tools:layout_editor_absoluteY="@dimen/_25sdp">
-
-
-            </androidx.appcompat.widget.Toolbar>
-
-
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="@dimen/_100sdp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|center_horizontal"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewS"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_170sdp"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:visibility="gone"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardElevation="@dimen/_4sdp"
+                app:layout_constraintBottom_toTopOf="@id/cardViewf"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardView4"
+                tools:ignore="MissingConstraints">
+
+
+                <TextView
+                    android:id="@+id/textView388"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:paddingHorizontal="@dimen/_10sdp"
+                    android:text="Celebrate the special moments in life with our unforgettable online birthday party experiences. Whether you're planning a surprise for a loved one or organizing your own celebration, we've got you covered. Our team of experts will help you create a virtual party that's just as exciting and engaging as an in-person event."
+                    android:textColor="@color/black"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@id/textView39"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardView4"
+                    app:layout_constraintVertical_bias="0.13" />
+
+                <Button
+                    android:id="@+id/buttonreadmore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_125sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:backgroundTint="#F44336"
+                    android:text="Read More"
+                    android:textColor="@color/white"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@id/textView39"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.168"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView388" />
+
+                <Button
+                    android:id="@+id/eventbook"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_125sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:backgroundTint="#F44336"
+                    android:text="Book event"
+                    android:textColor="@color/white"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@id/textView39"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/buttonreadmore"
+                    app:layout_constraintTop_toBottomOf="@+id/textView388"
+                    tools:ignore="InvalidId,MissingConstraints" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewfp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_170sdp"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:visibility="gone"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardElevation="@dimen/_4sdp"
+                app:layout_constraintBottom_toTopOf="@id/cardViewC"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardViewf"
+                tools:ignore="MissingConstraints">
+
+
+                <TextView
+                    android:id="@+id/textViewf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:paddingHorizontal="@dimen/_10sdp"
+                    android:text="Organizing a friends' party is all about creating a memorable and enjoyable experience for your closest pals. It's a social gathering where you and your friends come together to have a great time, relax, and strengthen your bonds. You can choose various themes or activities that resonate with your group's"
+                    android:textColor="@color/black"
+
+                    app:layout_constraintBottom_toTopOf="@id/textView39"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardView4"
+                    app:layout_constraintVertical_bias="0.13" />
+
+                <Button
+                    android:id="@+id/buttonreadmoref"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_125sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:backgroundTint="#F44336"
+                    android:text="Read More"
+                    android:textColor="@color/white"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@id/textView39"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.168"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView388" />
+
+                <Button
+                    android:id="@+id/eventbookf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_125sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:backgroundTint="#F44336"
+                    android:text="Book event"
+                    android:textColor="@color/white"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@id/textView39"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/buttonreadmore"
+                    app:layout_constraintTop_toBottomOf="@+id/textView388"
+                    tools:ignore="InvalidId,MissingConstraints" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewcorporateparties"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_170sdp"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:visibility="gone"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardElevation="@dimen/_4sdp"
+                app:layout_constraintBottom_toTopOf="@id/cardViewP"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardViewC"
+                tools:ignore="MissingConstraints">
+
+
+                <TextView
+                    android:id="@+id/textViewcorp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:paddingHorizontal="@dimen/_10sdp"
+                    android:text="Celebrate the special moments in life with our unforgettable online birthday party experiences. Whether you're planning a surprise for a loved one or organizing your own celebration, we've got you covered. Our team of experts will help you create a virtual party that's just as exciting and engaging as an in-person event."
+                    android:textColor="@color/black"
+
+                    app:layout_constraintBottom_toTopOf="@id/textView39"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardView4"
+                    app:layout_constraintVertical_bias="0.13" />
+
+                <Button
+                    android:id="@+id/buttonreadmorecorp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_125sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:backgroundTint="#F44336"
+                    android:text="Read More"
+                    android:textColor="@color/white"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@id/textView39"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.168"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView388" />
+
+                <Button
+                    android:id="@+id/eventbookcorp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_125sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:backgroundTint="#F44336"
+                    android:text="Book event"
+                    android:textColor="@color/white"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@id/textView39"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/buttonreadmore"
+                    app:layout_constraintTop_toBottomOf="@+id/textView388"
+                    tools:ignore="InvalidId,MissingConstraints" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewpersonal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_170sdp"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:visibility="gone"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardElevation="@dimen/_4sdp"
+                app:layout_constraintBottom_toTopOf="@id/cardViewfami"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardViewP"
+                tools:ignore="MissingConstraints">
+
+
+                <TextView
+                    android:id="@+id/textViewpersonal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:paddingHorizontal="@dimen/_10sdp"
+                    android:text="Celebrate the special moments in life with our unforgettable online birthday party experiences. Whether you're planning a surprise for a loved one or organizing your own celebration, we've got you covered. Our team of experts will help you create a virtual party that's just as exciting and engaging as an in-person event."
+                    android:textColor="@color/black"
+
+                    app:layout_constraintBottom_toTopOf="@id/textView39"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardView4"
+                    app:layout_constraintVertical_bias="0.13" />
+
+                <Button
+                    android:id="@+id/buttonreadpersonal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_125sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:backgroundTint="#F44336"
+                    android:text="Read More"
+                    android:textColor="@color/white"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@id/textView39"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.168"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView388" />
+
+                <Button
+                    android:id="@+id/eventbookpersonal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_125sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:backgroundTint="#F44336"
+                    android:text="Book event"
+                    android:textColor="@color/white"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@id/textView39"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/buttonreadmore"
+                    app:layout_constraintTop_toBottomOf="@+id/textView388"
+                    tools:ignore="InvalidId,MissingConstraints" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewfam"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_170sdp"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:visibility="gone"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardElevation="@dimen/_4sdp"
+                app:layout_constraintBottom_toTopOf="@id/cardViewCOCELE"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardViewfami"
+                tools:ignore="MissingConstraints">
+
+
+                <TextView
+                    android:id="@+id/textViewfam"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:paddingHorizontal="@dimen/_10sdp"
+                    android:text="Celebrate the special moments in life with our unforgettable online birthday party experiences. Whether you're planning a surprise for a loved one or organizing your own celebration, we've got you covered. Our team of experts will help you create a virtual party that's just as exciting and engaging as an in-person event."
+                    android:textColor="@color/black"
+
+                    app:layout_constraintBottom_toTopOf="@id/textView39"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardView4"
+                    app:layout_constraintVertical_bias="0.13" />
+
+                <Button
+                    android:id="@+id/buttonreadfam"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_125sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:backgroundTint="#F44336"
+                    android:text="Read More"
+                    android:textColor="@color/white"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@id/textView39"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.168"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView388" />
+
+                <Button
+                    android:id="@+id/eventbookfam"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_125sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:backgroundTint="#F44336"
+                    android:text="Book event"
+                    android:textColor="@color/white"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@id/textView39"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/buttonreadmore"
+                    app:layout_constraintTop_toBottomOf="@+id/textView388"
+                    tools:ignore="InvalidId,MissingConstraints" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewcocelebration"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_170sdp"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:visibility="gone"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardElevation="@dimen/_4sdp"
+                app:layout_constraintBottom_toTopOf="@id/cardViewMICE"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardViewCOCELE"
+                tools:ignore="MissingConstraints">
+
+
+                <TextView
+                    android:id="@+id/textViewcocelebration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:paddingHorizontal="@dimen/_10sdp"
+                    android:text="Celebrate the special moments in life with our unforgettable online birthday party experiences. Whether you're planning a surprise for a loved one or organizing your own celebration, we've got you covered. Our team of experts will help you create a virtual party that's just as exciting and engaging as an in-person event."
+                    android:textColor="@color/black"
+
+                    app:layout_constraintBottom_toTopOf="@id/textView39"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardView4"
+                    app:layout_constraintVertical_bias="0.13" />
+
+                <Button
+                    android:id="@+id/buttonreadcocelebration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_125sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:backgroundTint="#F44336"
+                    android:text="Read More"
+                    android:textColor="@color/white"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@id/textView39"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.168"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView388" />
+
+                <Button
+                    android:id="@+id/eventbookcocelebration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_125sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:backgroundTint="#F44336"
+                    android:text="Book event"
+                    android:textColor="@color/white"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@id/textView39"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/buttonreadmore"
+                    app:layout_constraintTop_toBottomOf="@+id/textView388"
+                    tools:ignore="InvalidId,MissingConstraints" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewmice"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_170sdp"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:visibility="gone"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardElevation="@dimen/_4sdp"
+                app:layout_constraintTop_toBottomOf="@+id/cardViewMICE"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+
+                tools:ignore="MissingConstraints">
+
+
+                <TextView
+                    android:id="@+id/textViewmice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:paddingHorizontal="@dimen/_10sdp"
+                    android:text="Celebrate the special moments in life with our unforgettable online birthday party experiences. Whether you're planning a surprise for a loved one or organizing your own celebration, we've got you covered. Our team of experts will help you create a virtual party that's just as exciting and engaging as an in-person event."
+                    android:textColor="@color/black"
+
+                    app:layout_constraintBottom_toTopOf="@id/textView39"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardView4"
+                    app:layout_constraintVertical_bias="0.13" />
+
+                <Button
+                    android:id="@+id/buttonreadmice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_125sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:backgroundTint="#F44336"
+                    android:text="Read More"
+                    android:textColor="@color/white"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@id/textView39"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.168"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView388" />
+
+                <Button
+                    android:id="@+id/eventbookmice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_125sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:backgroundTint="#F44336"
+                    android:text="Book event"
+                    android:textColor="@color/white"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@id/textView39"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/buttonreadmore"
+                    app:layout_constraintTop_toBottomOf="@+id/textView388"
+                    tools:ignore="InvalidId,MissingConstraints" />
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:fontFamily="serif"
+                android:text="Types of events"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_17sdp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView5"
+                tools:ignore="MissingConstraints" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView4"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_28sdp"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardElevation="@dimen/_4sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView4"
+                tools:ignore="MissingConstraints">
+
+
+                <TextView
+                    android:id="@+id/textView38"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="@dimen/_10sdp"
+                    android:text="Birthday Parties"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.11"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imageView29"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:contentDescription="TODO"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:paddingRight="@dimen/_10sdp"
+                    android:visibility="gone"
+                    app:srcCompat="@drawable/uparrow" />
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:contentDescription="TODO"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:paddingRight="@dimen/_10sdp"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/downarrow" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewf"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_28sdp"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardElevation="@dimen/_4sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardViewS"
+                tools:ignore="MissingConstraints">
+
+
+                <TextView
+                    android:id="@+id/textView39"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="@dimen/_10sdp"
+                    android:text="Friends Parties"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.11"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imageViewf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:contentDescription="TODO"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:paddingRight="@dimen/_10sdp"
+                    android:visibility="gone"
+                    app:srcCompat="@drawable/uparrow" />
+
+                <ImageView
+                    android:id="@+id/imageViewfriends"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:contentDescription="TODO"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:paddingRight="@dimen/_10sdp"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/downarrow" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewC"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_28sdp"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardElevation="@dimen/_4sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardViewfp"
+                tools:ignore="MissingConstraints">
+
+
+                <TextView
+                    android:id="@+id/textView40"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="@dimen/_10sdp"
+                    android:text="Corporate Parties"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.11"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imageViewcorpar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:contentDescription="TODO"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:paddingRight="@dimen/_10sdp"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/downarrow" />
+
+                <ImageView
+                    android:id="@+id/imageViewc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:contentDescription="TODO"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:paddingRight="@dimen/_10sdp"
+                    android:visibility="gone"
+                    app:srcCompat="@drawable/uparrow" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewP"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_28sdp"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardElevation="@dimen/_4sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardViewcorporateparties"
+                tools:ignore="MissingConstraints">
+
+
+                <TextView
+                    android:id="@+id/textView42"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="@dimen/_10sdp"
+                    android:text="Personal Ceremony"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.11"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imageViewp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:contentDescription="TODO"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:paddingRight="@dimen/_10sdp"
+                    android:visibility="gone"
+                    app:srcCompat="@drawable/uparrow" />
+
+                <ImageView
+                    android:id="@+id/imageViewpersoc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:contentDescription="TODO"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:paddingRight="@dimen/_10sdp"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/downarrow" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewfami"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_28sdp"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardElevation="@dimen/_4sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardViewpersonal"
+                tools:ignore="MissingConstraints">
+
+
+                <TextView
+                    android:id="@+id/textView44"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="@dimen/_10sdp"
+                    android:text="Family get-together"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.11"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imageViewfami"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:contentDescription="TODO"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:paddingRight="@dimen/_10sdp"
+                    android:visibility="gone"
+                    app:srcCompat="@drawable/uparrow" />
+
+                <ImageView
+                    android:id="@+id/imageViewfamily"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:contentDescription="TODO"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:paddingRight="@dimen/_10sdp"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/downarrow" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewCOCELE"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_28sdp"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardElevation="@dimen/_4sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardViewfam"
+                tools:ignore="MissingConstraints">
+
+
+                <TextView
+                    android:id="@+id/textView45"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="@dimen/_10sdp"
+                    android:text="Corporate Celebration"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.11"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imageViewcocele"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:contentDescription="TODO"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:paddingRight="@dimen/_10sdp"
+                    android:visibility="gone"
+                    app:srcCompat="@drawable/uparrow" />
+
+                <ImageView
+                    android:id="@+id/imageViewcocel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:contentDescription="TODO"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:paddingRight="@dimen/_10sdp"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/downarrow" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewMICE"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_28sdp"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardElevation="@dimen/_4sdp"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardViewcocelebration"
+                tools:ignore="MissingConstraints">
+
+
+                <TextView
+                    android:id="@+id/textView47"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="@dimen/_10sdp"
+                    android:text="MICE Events"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.11"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imageViewmice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:contentDescription="TODO"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:paddingRight="@dimen/_10sdp"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/downarrow" />
+
+                <ImageView
+                    android:id="@+id/imageViewmiceup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:contentDescription="TODO"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:paddingRight="@dimen/_10sdp"
+                    android:visibility="gone"
+                    app:srcCompat="@drawable/uparrow" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/creatcardevent"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_60sdp"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardElevation="@dimen/_4sdp"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/weeho" />
-        </androidx.cardview.widget.CardView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                tools:ignore="MissingConstraints">
+
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/white"
+                    android:minHeight="?attr/actionBarSize"
+                    android:theme="@style/Mytoolbartheme"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteX="-@dimen/_97sdp"
+                    tools:layout_editor_absoluteY="@dimen/_25sdp">
+
+
+                </androidx.appcompat.widget.Toolbar>
+
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/weeho" />
+            </androidx.cardview.widget.CardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.drawerlayout.widget.DrawerLayout>
