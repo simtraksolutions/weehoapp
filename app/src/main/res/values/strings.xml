@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">My Application</string>
     <string name="navigation_drawer_open">Open Drawer</string>
     <string name="web_client_id">98702491949-8c4s2fm03bss8j18vav309lai847imfj.apps.googleusercontent.com</string>
@@ -9,8 +9,11 @@
 
     <string-array name="dropdown_items">
 
-        <item>Select an occasion  </item>
-        <item>Personal Parties </item>
+        <item>Select an occasion
+
+        </item>
+        <item>Personal Parties
+        </item>
         <item>Personal Ceremony </item>
         <item>Corporate Parties </item>
         <item>Corporate Celebration </item>
@@ -21,6 +24,28 @@
 
     </string-array>
 
+    <string-array name="date_selection_options">
+        <item>Select any option from below</item>
+        <item>Specific</item>
+        <item>Range</item>
+        <item>Not Specific</item>
+    </string-array>
+    <string-array name="dropcategory">
+        <item>Select an Category of performer</item>
+        <item>Singer</item>
+        <item>Dancer</item>
+        <item>Actors</item>
+        <item>Comedians</item>
+        <item>Magicians</item>
+        <item>Musicians</item>
+        <item>hello</item>
+    </string-array>
+    <string-array name="performers">
+        <item>Select an Performer</item>
+        <item>Mandeep singh</item>
+        <item>Rupali bhattacharjee</item>
+        <item>Navvin gandharv</item>
+    </string-array>
     <string-array name="state_name">
 
         <item>Select State  </item>

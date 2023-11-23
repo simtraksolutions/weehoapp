@@ -10,6 +10,11 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.yalantis.ucrop.UCrop;
 
 
@@ -41,6 +46,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Calendar;
+import java.util.HashMap;
 
 public class MainActivity10 extends AppCompatActivity {
 
@@ -50,9 +56,10 @@ public class MainActivity10 extends AppCompatActivity {
     private ImageView edit, display;
     private Button button;
     private Toolbar toolbar;
-    private Spinner spinner;
-
-    private EditText dateEditText,address;
+    private Spinner spinner, state;
+    private FirebaseDatabase firebaseDatabase;
+    private DatabaseReference databaseReference;
+    private EditText dateEditText,address, city;
     private ActionBarDrawerToggle actionBarDrawerToggle;
 
     @SuppressLint("MissingInflatedId")
@@ -64,6 +71,13 @@ public class MainActivity10 extends AppCompatActivity {
         address = findViewById(R.id.editTextTextMultiLine);
         display = findViewById(R.id.imgview);
         button = findViewById(R.id.button7);
+        city = findViewById(R.id.editTextText2);
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference();
+        state = findViewById(R.id.state);
+        ArrayAdapter<CharSequence> adapterstate = ArrayAdapter.createFromResource(this, R.array.state_name, R.layout.my_selected_items);
+        adapterstate.setDropDownViewResource(R.layout.my_drop_item);
+        state.setAdapter(adapterstate);
         edit = findViewById(R.id.editlogo);
         edit.setOnClickListener(v -> {
             Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
@@ -126,19 +140,33 @@ public class MainActivity10 extends AppCompatActivity {
             public void onClick(View v) {
                 String dob = dateEditText.getText().toString().trim();
                 String addre = address.getText().toString().trim();
+                String getstate = state.getSelectedItem().toString();
+                String getcity = city.getText().toString();
                 SharedPreferences profileshard = getSharedPreferences("profile",MODE_PRIVATE);
                 SharedPreferences.Editor profedi = profileshard.edit();
                 profedi.putString("dob",dob);
                 profedi.putString("address",addre);
+                profedi.putString("city",getcity);
+                profedi.putString("state",getstate);
+                HashMap<String, Object> hashmap = new HashMap<>();
+                hashmap.put("state", getstate);
+                hashmap.put("city", getcity);
                 profedi.apply();
+
                 Toast.makeText(MainActivity10.this, "Changes saved successfully", Toast.LENGTH_SHORT).show();
             }
         });
         SharedPreferences profileshard = getSharedPreferences("profile",MODE_PRIVATE);
         String date = profileshard.getString("dob","");
         String useraddress = profileshard.getString("address","");
+        String getcty = profileshard.getString("city","");
+        String getstat = profileshard.getString("state","");
         dateEditText.setText(date);
         address.setText(useraddress);
+        city.setText(getcty);
+        ArrayAdapter<String> adapter = (ArrayAdapter<String>) state.getAdapter();
+        int position = adapter.getPosition(getstat);
+        state.setSelection(position);
         SharedPreferences sharedimg = getSharedPreferences("my_img", MODE_PRIVATE);
         String imagePath = sharedimg.getString("image_path", "");
         if (!imagePath.isEmpty()) {

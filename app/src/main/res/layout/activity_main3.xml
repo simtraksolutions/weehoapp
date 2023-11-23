@@ -142,40 +142,7 @@
 
     </androidx.cardview.widget.CardView>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardstate"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_38sdp"
-        android:layout_marginRight="@dimen/_5sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:layout_marginHorizontal="@dimen/_20sdp"
-        app:cardBackgroundColor="#FFFFFF"
-        app:cardCornerRadius="@dimen/_8sdp"
-        app:cardElevation="@dimen/_4sdp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.531"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView6"
-        tools:ignore="MissingConstraints">
-      <ImageView
-          android:id="@+id/imageViewPhone1"
-          android:layout_width="@dimen/_26sdp"
-          android:layout_height="match_parent"
 
-          android:paddingLeft="@dimen/_11sdp"
-          android:paddingTop="@dimen/_2sdp"
-          app:srcCompat="@drawable/list" />
-      <Spinner
-          android:id="@+id/state"
-          android:layout_gravity="center_vertical"
-          android:paddingLeft="@dimen/_33sdp"
-          android:ems="10"
-          android:layout_width="match_parent"
-          android:layout_height="match_parent"
-          android:textColor="@color/black" />
-
-
-    </androidx.cardview.widget.CardView>
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView4"
         android:layout_width="match_parent"
@@ -295,44 +262,7 @@
 
     </androidx.cardview.widget.CardView>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView6"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_38sdp"
-        android:layout_marginHorizontal="@dimen/_20sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        app:cardBackgroundColor="#FFFFFF"
-        app:cardCornerRadius="@dimen/_8sdp"
-        app:cardElevation="@dimen/_4sdp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView3"
-        tools:ignore="MissingConstraints">
-      <ImageView
-          android:id="@+id/imageViewCity"
-          android:layout_width="@dimen/_28sdp"
-          android:layout_height="match_parent"
-          android:paddingLeft="@dimen/_10sdp"
-          android:paddingTop="@dimen/_2sdp"
-          app:srcCompat="@drawable/locationorange" />
-      <EditText
-          android:id="@+id/editTextText2"
-          android:layout_width="@dimen/_229sdp"
-          android:layout_height="@dimen/_48sdp"
-          android:layout_gravity="center_vertical"
-          android:background="@null"
-          android:ems="10"
-          android:hint="City"
-          android:fontFamily="@font/average_sans"
-          android:inputType="text"
-          android:paddingLeft="@dimen/_38sdp"
-          android:textColor="@color/black"
-          android:textColorHint="@color/black"
-          app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintHorizontal_bias="0.52"
-          app:layout_constraintStart_toStartOf="parent"
-          tools:layout_editor_absoluteY="@dimen/_447sdp" />
-    </androidx.cardview.widget.CardView>
+
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView7"
@@ -374,6 +304,40 @@
           tools:layout_editor_absoluteY="@dimen/_415sdp" />
 
     </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewcatep"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_38sdp"
+        android:layout_marginRight="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        app:cardBackgroundColor="#FFFFFF"
+        app:cardCornerRadius="@dimen/_8sdp"
+        app:cardElevation="@dimen/_4sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.531"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView7"
+        tools:ignore="MissingConstraints">
+      <ImageView
+          android:id="@+id/imageViewcate"
+          android:layout_width="@dimen/_26sdp"
+          android:layout_height="match_parent"
+
+          android:paddingLeft="@dimen/_11sdp"
+          android:paddingTop="@dimen/_2sdp"
+          app:srcCompat="@drawable/list" />
+      <Spinner
+          android:id="@+id/spinnercate"
+          android:layout_gravity="center_vertical"
+          android:paddingLeft="@dimen/_33sdp"
+          android:ems="10"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:textColor="@color/black" />
+
+
+    </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/dateview"
@@ -388,7 +352,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardstate"
+        app:layout_constraintTop_toBottomOf="@+id/cardView3"
         app:layout_constraintVertical_bias="0.5"
         tools:ignore="InvalidId,MissingConstraints">
       <ImageView
@@ -398,24 +362,17 @@
           android:paddingLeft="@dimen/_10sdp"
           android:paddingTop="@dimen/_2sdp"
           app:srcCompat="@drawable/calendarorange" />
-      <EditText
-          android:id="@+id/dateEditText"
-          android:layout_width="@dimen/_229sdp"
-          android:layout_height="@dimen/_47sdp"
-          android:fontFamily="@font/average_sans"
+      <Spinner
+          android:id="@+id/dateSelectorSpinner"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
           android:layout_gravity="center_vertical"
-          android:background="@null"
-          android:hint="Select Date"
-          android:onClick="showDatePickerDialog"
-          android:editable="false"
-          android:paddingLeft="@dimen/_38sdp"
-          android:textColor="@color/black"
-          android:textColorHint="@color/black"
+          android:paddingLeft="@dimen/_33sdp"
           app:layout_constraintBottom_toTopOf="@+id/cardView2"
           app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintStart_toStartOf="parent"
           app:layout_constraintTop_toBottomOf="@+id/cardView6"
-          app:layout_constraintVertical_bias="0.5" />
+          />
 
 
     </androidx.cardview.widget.CardView>
@@ -441,7 +398,7 @@
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView7"
+        app:layout_constraintTop_toBottomOf="@+id/cardViewcatep"
         tools:ignore="NotSibling" />
 
     <TextView
