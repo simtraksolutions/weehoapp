@@ -164,9 +164,7 @@ public class MainActivity10 extends AppCompatActivity {
         dateEditText.setText(date);
         address.setText(useraddress);
         city.setText(getcty);
-        ArrayAdapter<String> adapter = (ArrayAdapter<String>) state.getAdapter();
-        int position = adapter.getPosition(getstat);
-        state.setSelection(position);
+//        state.setText(getstat);
         SharedPreferences sharedimg = getSharedPreferences("my_img", MODE_PRIVATE);
         String imagePath = sharedimg.getString("image_path", "");
         if (!imagePath.isEmpty()) {

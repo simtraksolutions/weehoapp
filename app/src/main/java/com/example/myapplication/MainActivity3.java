@@ -7,6 +7,16 @@
     import androidx.appcompat.app.AppCompatActivity;
     import android.annotation.SuppressLint;
     import android.app.TimePickerDialog;
+    import androidx.appcompat.app.AppCompatActivity;
+    import androidx.core.content.res.ResourcesCompat;
+
+    import android.app.Notification;
+    import android.app.NotificationChannel;
+    import android.app.NotificationManager;
+    import android.graphics.Bitmap;
+    import android.graphics.drawable.BitmapDrawable;
+    import android.graphics.drawable.Drawable;
+    import android.os.Bundle;
     import android.content.DialogInterface;
     import android.content.SharedPreferences;
     import android.os.AsyncTask;
@@ -14,11 +24,12 @@
     import androidx.appcompat.widget.Toolbar;
     import androidx.drawerlayout.widget.DrawerLayout;
     import android.app.DatePickerDialog;
+    import android.os.StrictMode;
     import android.util.Log;
     import android.view.Menu;
     import android.view.MenuItem;
-    import papaya.in.sendmail.SendMail;
-    import papaya.in.sendmail.Config;
+//    import papaya.in.sendmail.SendMail;
+//    import papaya.in.sendmail.Config;
     import com.example.myapplication.MainActivity10;
     import com.example.myapplication.MainActivity11;
     import com.example.myapplication.MainActivity4;
@@ -28,8 +39,12 @@
     import com.google.android.gms.tasks.OnFailureListener;
     import com.google.android.gms.tasks.OnSuccessListener;
     import com.google.android.material.navigation.NavigationView;
+    import com.google.firebase.database.DataSnapshot;
+    import com.google.firebase.database.DatabaseError;
     import com.google.firebase.database.DatabaseReference;
     import com.google.firebase.database.FirebaseDatabase;
+    import com.google.firebase.database.Query;
+    import com.google.firebase.database.ValueEventListener;
 
     import android.widget.AdapterView;
     import android.widget.DatePicker;
@@ -48,6 +63,7 @@
     import android.widget.Toast;
     import android.widget.ArrayAdapter;
 
+    import javax.mail.Authenticator;
     import javax.mail.Message;
     import javax.mail.MessagingException;
     import javax.mail.PasswordAuthentication;
@@ -74,6 +90,10 @@
         private Spinner spinner,category_performer ;
         private FirebaseDatabase firebaseDatabase;
         private DatabaseReference databaseReference;
+        private static final String CHANNEL_ID = "MY CHANNEL";
+        private String showfinaldatemail;
+        private String showfinalCategory;
+        private String showfinalperformer;
 
         @SuppressLint("MissingInflatedId")
         @Override
@@ -89,6 +109,8 @@
             String retrievedphone = intent.getStringExtra("phone1");
             String savedEmail = intent.getStringExtra("keymail");
             String savedPhone = intent.getStringExtra("keyphone");
+            String dbem = intent.getStringExtra("em");
+            Log.d("MainActivity3", "Retrieved value from SharedPreferences: mail" + dbem);
             SharedPreferences sharedPreferences = getSharedPreferences("demo", MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putString("mail",savedEmail);
@@ -101,16 +123,18 @@
             String usemail = shad.getString("usermail","");
             String uphone = shad.getString("userphone","");
             Log.d("MainActivity3", "Retrieved value from SharedPreferences: " + usemail);
-            // Inside MainActivity2
-            SharedPreferences sharedPreferencesf = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+            Log.d("MainActivity3", "Retrieved value from SharedPreferences: " + savedEmail);
 
-// Retrieve data
-            String namef = sharedPreferencesf.getString("Name", "");
-            String emailf = sharedPreferencesf.getString("Email", "");
-            String phoneNumber = sharedPreferencesf.getString("PhoneNumber", "");
-            name.setText(namef);
-            number.setText(phoneNumber);
-            email.setText(emailf);
+            // Inside MainActivity2
+
+
+            String receivedText = Dataholder.getInstance().getFinalText();
+
+            email.setText(receivedText);
+
+
+
+
 
             if(sharedPreferences.getString("islogin","false").equals("false")){
                 editor.putString("islogin","yes");
@@ -277,6 +301,175 @@
                     // Do nothing
                 }
             });
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+//            DatabaseReference databaseReference10 = firebaseDatabase.getInstance().getReference("UsersInfo/"+receivedText);
+//            databaseReference10.addValueEventListener(new ValueEventListener() {
+//
+//                @Override
+//                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                    for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
+//                        // Get the values for each user using userSnapshot instead of dataSnapshot
+////                        String number = dataSnapshot.child("number").getValue(String.class);
+////                        String getcity = dataSnapshot.child("city").getValue(String.class);
+////                        String getdate = dataSnapshot.child("date").getValue(String.class);
+////                        String getevent = dataSnapshot.child("event").getValue(String.class);
+////                        String getoccasion = dataSnapshot.child("occasion").getValue(String.class);
+////                        String namff = dataSnapshot.child("name").getValue(String.class);
+////                        String phoneff = dataSnapshot.child("number").getValue(String.class);
+////                        Log.d("FirebaseData", "User Name: " + number);
+////                        Log.d("FirebaseData", "User getcity: " + getcity);
+////                        Log.d("FirebaseData", "User getdate: " + getdate);
+////                        Log.d("FirebaseData", "User getevent: " + getevent);
+////                        Log.d("FirebaseData", "User getoccasion: " + getoccasion);
+////                        t1.setText("Number:        " + number);
+////                        t2.setText("City:              " + getcity);
+////                        t3.setText("Event date:    " + getdate);
+////                        t4.setText("Event:           " + getevent);
+////                        t5.setText("Occasion:      " + getoccasion);
+////                        name.setText(namff);
+//////                        number.setText(phoneff);
+//                        if (dataSnapshot.exists()) {
+//                            String namff = dataSnapshot.child("name").getValue(String.class);
+//                            String phoneff = dataSnapshot.child("number").getValue(String.class);
+//
+//                            if (namff != null) {
+//                                name.setText(namff);
+//                            }
+//
+//                            if (phoneff != null) {
+//                                number.setText(phoneff);
+//                            }
+//                        } else {
+//                            // Handle case where dataSnapshot doesn't exist
+//                            Toast.makeText(MainActivity3.this, "areee reee", Toast.LENGTH_SHORT).show();
+//                        }
+//                        databaseReference10.keepSynced(true);
+//                    }
+//
+//
+//                }
+//
+//
+//                @Override
+//                public void onCancelled(@NonNull DatabaseError error) {
+//                    Toast.makeText(MainActivity3.this, "Error", Toast.LENGTH_SHORT).show();
+//
+//                }
+//            });
+            SharedPreferences sharedPreferencesem = getSharedPreferences("MyPrefs_e", MODE_PRIVATE);
+            String receivedText1 = sharedPreferencesem.getString("finaldbem","");
+            Log.d("checkreceived","This is receivetext1: "+receivedText1);
+            {
+                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("UsersInfo");
+                Query query = databaseReference.orderByChild("number").equalTo(receivedText1);
+
+                query.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                            String name1 = snapshot.child("name").getValue(String.class);
+                            String phoneNumber = snapshot.child("number").getValue(String.class);
+                            String maild = snapshot.child("mail").getValue(String.class);
+                            name.setText(name1);
+                            email.setText(maild);
+                            number.setText(phoneNumber);
+                            SharedPreferences sharedPreferencesf = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+                            SharedPreferences.Editor editor = sharedPreferencesf.edit();
+
+// Save data
+                            editor.putString("Name", name1);
+                            editor.putString("Email", maild);
+
+                            editor.putString("PhoneNumber", phoneNumber);
+                            editor.apply();
+
+                            // Use the retrieved data as needed
+                            Log.d("FirebaseData", "Name: " + name1);
+                            Log.d("FirebaseData", "Email: " + maild);
+                            Log.d("FirebaseData", "Phone Number: " + phoneNumber);
+
+                            // Set data to your TextViews or other UI elements if required
+                            // nameTextView.setText(name);
+                            // phoneTextView.setText(phoneNumber);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        // Handle onCancelled event
+                        Log.e("FirebaseData", "Error: " + error.getMessage());
+                    }
+
+                });
+                SharedPreferences sharedPreferencesf = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+
+                // Retrieve data
+                String namef = sharedPreferencesf.getString("Name", "");
+                String emailf = sharedPreferencesf.getString("Email", "");
+
+
+                String phoneNumber1 = sharedPreferencesf.getString("PhoneNumber", "");
+                name.setText(namef);
+                email.setText(emailf);
+                number.setText(phoneNumber1);
+            }
+
+            {
+                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("UsersInfo");
+                Query query = databaseReference.orderByChild("mail").equalTo(receivedText1);
+
+                query.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                            String name1 = snapshot.child("name").getValue(String.class);
+                            String phoneNumber = snapshot.child("number").getValue(String.class);
+                            String maild = snapshot.child("mail").getValue(String.class);
+                            name.setText(name1);
+                            email.setText(maild);
+                            number.setText(phoneNumber);
+                            SharedPreferences sharedPreferencesf = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+                            SharedPreferences.Editor editor = sharedPreferencesf.edit();
+
+// Save data
+                            editor.putString("Name", name1);
+                            editor.putString("Email", maild);
+
+                            editor.putString("PhoneNumber", phoneNumber);
+                            editor.apply();
+
+                            // Use the retrieved data as needed
+                            Log.d("FirebaseData1", "Name: " + name1);
+                            Log.d("FirebaseData", "Email: " + maild);
+                            Log.d("FirebaseData", "Phone Number: " + phoneNumber);
+
+                            // Set data to your TextViews or other UI elements if required
+                            // nameTextView.setText(name);
+                            // phoneTextView.setText(phoneNumber);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        // Handle onCancelled event
+                        Log.e("FirebaseData", "Error: " + error.getMessage());
+                    }
+                });
+                SharedPreferences sharedPreferencesf = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+
+// Retrieve data
+                String namefinall = sharedPreferencesf.getString("Name", "");
+                String emailfinall = sharedPreferencesf.getString("Email", "");
+
+
+
+                String phoneNumberfinal = sharedPreferencesf.getString("PhoneNumber", "");
+                name.setText(namefinall);
+                email.setText(emailfinall);
+                number.setText(phoneNumberfinal);
+            }
+
         }
 
 
@@ -381,7 +574,7 @@
                         // Handle selected date here
                         String selectedDate = dayOfMonth1 + "/" + (monthOfYear + 1) + "/" + year1;
                         Toast.makeText(this, "Selected Date: " + selectedDate, Toast.LENGTH_SHORT).show();
-
+                        showfinaldatemail = selectedDate;
                         // Show TimePickerDialog after selecting the date
                         showTimePickerDialog();
                     }, year, month, dayOfMonth);
@@ -478,7 +671,7 @@
 
             String getname = name.getText().toString();
 
-//            String getevent = spinner.getSelectedItem().toString();
+            String getevent = spinner.getSelectedItem().toString();
             String getnumber = number.getText().toString();
 //            String getdate = dateEditText.getText().toString();
             String getoccasion = occasion.getText().toString();
@@ -487,6 +680,9 @@
             Intent intent1  = new Intent(MainActivity3.this, MainActivity12.class);
             String rname = name.getText().toString();
             String fmail = email.getText().toString();
+            String datedb = showfinaldatemail;
+            String categorydb = showfinalCategory;
+            String performerdb = showfinalperformer;
             intent1.putExtra("nam",rname);
             intent1.putExtra("fimail",fmail);
             intent1.putExtra("msg",hv);
@@ -497,20 +693,78 @@
             hashmap.put("name", getname);
             hashmap.put("number", getnumber);
 
-//            hashmap.put("event", getevent);
+            hashmap.put("event", getevent);
 //            hashmap.put("date", getdate);
             hashmap.put("mail",umail);
             hashmap.put("occasion", getoccasion);
+            hashmap.put("Date",datedb);
+            hashmap.put("Category",categorydb);
+            hashmap.put("Performer",performerdb);
+//            Toast.makeText(MainActivity3.this, "Data stored successfully", Toast.LENGTH_SHORT).show();
+//            String stringsendermail = "urvrajsinh.jadeja113724@marwadiuniversity.ac.in";
+//            String stringreceivermail = "jadejaurvrajsinh@gmail.com";
+//            String stringpasswordsendermail = "Bndc@761";
+//            String stringhost = "smtp.gmail.com";
+//            Properties properties = System.getProperties();
+//            properties.put("mail.smtp.host", stringhost);
+//            properties.put("mail.smtp.port", "465");
+//            properties.put("mail.smtp.ssl.enable", "true");
+//            properties.put("mail.smtp.auth", "true");
+//
+//            javax.mail.Session session = Session.getInstance(properties, new Authenticator() {
+//                @Override
+//                protected PasswordAuthentication getPasswordAuthentication() {
+//                    return new PasswordAuthentication(stringsendermail, stringpasswordsendermail);
+//
+//                }
+//            });
+//
+//            try {
+//                MimeMessage mimeMessage = new MimeMessage(session);
+//                mimeMessage.setFrom(new InternetAddress(stringsendermail));
+//                mimeMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(stringreceivermail));
+//                mimeMessage.setSubject("Subject: Successfully booking an event or occasion "+getoccasion);
+//                mimeMessage.setText("Dear "+getname+",\n\n"+" Greetings and thank you for booking an event "+getoccasion+"! We are thrilled to have you join us. \n\n"+"Below are the details of your booking: \n\n"+"=>Occasion: "+getoccasion+"\n"+"=>Date: "+showfinaldatemail+"\n\n"+"If you have any questions or need further assistance, feel free to reach out.\n\n We look forward to seeing you at the event! \n\n Best regards,\n Weeho team");
+//                Transport.send(mimeMessage);
+//                Toast.makeText(MainActivity3.this, "email sended", Toast.LENGTH_SHORT).show();
+//            } catch (MessagingException e) {
+//                throw new RuntimeException(e);
+//            }
 
-            databaseReference.child("Users")
+            Drawable drawable = ResourcesCompat.getDrawable(getResources(), R.drawable.notificationorange, null);
+            BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
+            Bitmap largeIcon = bitmapDrawable.getBitmap();
+
+            NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+            Notification.Builder notification = null;
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                notification = new Notification.Builder(MainActivity3.this)
+                        .setLargeIcon(largeIcon)
+                        .setSmallIcon(R.drawable.notificationorange)
+                        .setContentText("Hi "+getname+",\n Your booking is confirmed!")
+                        .setContentTitle("Successfully Event Booking: "+getoccasion)
+                        .setSubText("Now")
+                        .setChannelId(CHANNEL_ID);
+                nm.createNotificationChannel(new NotificationChannel(CHANNEL_ID, "New Channel", NotificationManager.IMPORTANCE_HIGH));
+//            .build();
+            }else {
+                notification = new Notification.Builder(MainActivity3.this)
+                        .setLargeIcon(largeIcon)
+                        .setSmallIcon(R.drawable.notificationorange)
+                        .setContentText("you are succefully Book the party")
+                        .setSubText("New msg jadeja");
+            }
+
+            Notification notif = notification.build();
+            nm.notify(1, notif);
+
+            databaseReference.child("UsersEvents")
                     .child(getname)
                     .setValue(hashmap)
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
-
-                            Toast.makeText(MainActivity3.this, "Data stored successfully", Toast.LENGTH_SHORT).show();
-
+                            Toast.makeText(MainActivity3.this, "Your form has been submitted", Toast.LENGTH_SHORT).show();
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
@@ -520,16 +774,16 @@
                         }
                     });
 
-            Toast.makeText(MainActivity3.this, "Your form has been submitted", Toast.LENGTH_SHORT).show();
-            name.setText("");
 
-
-            occasion.setText("");
-            dateEditText.setText("");
+//            name.setText("");
+//
+//
+//            occasion.setText("");
+//            dateEditText.setText("");
         }
         private void showStateDropdown() {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("Select State");
+            builder.setTitle("Select Performer");
 
             ArrayAdapter<CharSequence> stateAdapter = ArrayAdapter.createFromResource(this,
                     R.array.performers, R.layout.my_selected_items);
@@ -550,6 +804,8 @@
 
                 // Perform actions with the selections
                 String message = "Performer Category: " + selectedMainItem + "\nPerformer Name: " + selectedState;
+                showfinalCategory = selectedMainItem;
+                showfinalperformer = selectedState;
                 Toast.makeText(MainActivity3.this, message, Toast.LENGTH_SHORT).show();
             });
 

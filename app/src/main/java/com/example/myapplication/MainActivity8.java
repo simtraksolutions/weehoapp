@@ -16,10 +16,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.HashMap;
 import java.util.regex.Pattern;
 
 public class MainActivity8 extends AppCompatActivity {
@@ -28,11 +33,15 @@ String texte , textp;
 FirebaseAuth auth;
 TextView showpass,confirmshowpass;
 EditText name,emailedittext,password,confirmpassword,Phone;
+    private FirebaseDatabase firebaseDatabase;
+    private DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main8);
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference();
         button=findViewById(R.id.button5);
         name=findViewById(R.id.editTextText3);
         showpass=findViewById(R.id.textView26);
@@ -130,19 +139,35 @@ EditText name,emailedittext,password,confirmpassword,Phone;
                     String nameu = name.getText().toString();
                     String phoneu = Phone.getText().toString();
                     String emailu = emailedittext.getText().toString();
+
+                    HashMap<String, Object> hashmap = new HashMap<>();
+
+                    hashmap.put("name", nameu);
+                    hashmap.put("number", phoneu);
+
+//            hashmap.put("event", getevent);
+//            hashmap.put("date", getdate);
+                    hashmap.put("mail",emailu);
+                    databaseReference.child("UsersInfo")
+                            .child(nameu)
+                            .setValue(hashmap)
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void unused) {
+                                    Toast.makeText(MainActivity8.this, "Your form has been submitted", Toast.LENGTH_SHORT).show();
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(MainActivity8.this, "" + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+                            });
                     Intent iname =  new Intent(MainActivity8.this,MainActivity2.class);
                     iname.putExtra("nameuf",nameu);
                     iname.putExtra("phoneuf",phoneu);
                     iname.putExtra("emailuf",emailu);
                     // Inside MainActivity
-                    SharedPreferences sharedPreferencesf = getSharedPreferences("MyPrefs", MODE_PRIVATE);
-                    SharedPreferences.Editor editor = sharedPreferencesf.edit();
-
-// Save data
-                    editor.putString("Name", nameu);
-                    editor.putString("Email", emailu);
-                    editor.putString("PhoneNumber", phoneu);
-                    editor.apply();
                     startActivity(iname);
 
                 }else {

@@ -310,7 +310,12 @@ public class MainActivity2 extends AppCompatActivity {
 
         String userphone = Email.getText().toString();
 
+        SharedPreferences sharedPreferencesem = getSharedPreferences("MyPrefs_e", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferencesem.edit();
 
+// Save data
+        editor.putString("finaldbem", userphone);
+        editor.apply();
         // Send verification code and authenticate with Firebase
         sendVerificationCode("+91" + userphone, email, password);
 
@@ -475,9 +480,21 @@ public class MainActivity2 extends AppCompatActivity {
 
                         auth.signInWithEmailAndPassword(email,password);
                         progressBar.setVisibility(View.VISIBLE);
+
                         buttonlogin.setVisibility(View.INVISIBLE);
-                        Intent intent = new Intent(MainActivity2.this, MainActivity12.class);
-                        startActivity(intent);
+                        String dbem = email.toString();
+                        Intent intentdbem = new Intent(MainActivity2.this, MainActivity12.class);
+                        intentdbem.putExtra("em",dbem);
+                        Log.d("MainActivity2m", "Retrieved value from SharedPreferences: mail" + dbem);
+                        String finalText = Email.getText().toString().trim();
+                        Dataholder.getInstance().setFinalText(finalText);
+                        SharedPreferences sharedPreferencesem = getSharedPreferences("MyPrefs_e", MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPreferencesem.edit();
+
+// Save data
+                        editor.putString("finaldbem", finalText);
+                        editor.apply();
+                        startActivity(intentdbem);
 
                     }
                 })

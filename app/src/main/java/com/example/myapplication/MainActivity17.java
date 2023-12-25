@@ -50,6 +50,7 @@ public class MainActivity17 extends AppCompatActivity {
     private ArrayAdapter<String> historyAdapter;
     private ArrayList<String> historyList;
     private FirebaseDatabase firebaseDatabase;
+    private String finalnamedb;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,7 +100,14 @@ public class MainActivity17 extends AppCompatActivity {
         String hv = intent1.getStringExtra("msg");
         String ujsinh = intent1.getStringExtra("nam");
         Log.d("namee","user name issss : "+ujsinh);
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users/"+ujsinh);
+        String receivedText1 = Dataholder.getInstance().getFinalText();
+        SharedPreferences sharedPreferencesem = getSharedPreferences("MyPrefs_e", MODE_PRIVATE);
+        String receivedText = sharedPreferencesem.getString("finaldbem","");
+//        SharedPreferences sharedPreferencesphonedbfirebase = getSharedPreferences("MyPrefs_p", MODE_PRIVATE);
+//        String receivedPhone = sharedPreferencesphonedbfirebase.getString("finaldbph","");
+        Log.d("DBemail","Here is the email id "+receivedText);
+//        Log.d("DBphone","Here is the email id "+receivedPhone);
+
 
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,41 +117,812 @@ public class MainActivity17 extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        {
+            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("UsersInfo");
+            Query query = databaseReference.orderByChild("mail").equalTo(receivedText);
+            DatabaseReference dbeventinfo = FirebaseDatabase.getInstance().getReference("UsersEvents");
+            Query queryeve = dbeventinfo.orderByChild("mail").equalTo(receivedText);
 
-       databaseReference.addValueEventListener(new ValueEventListener() {
+//        dbeventinfo.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                for (DataSnapshot userSnapshot1 : snapshot.getChildren()){
+//                    String getoccasion = snapshot.child("occasion").getValue(String.class);
+//                    String datedb = snapshot.child("Date").getValue(String.class);
+//                    String getevent = snapshot.child("event").getValue(String.class);
+//                    String categorydb = snapshot.child("Category").getValue(String.class);
+//                    t3.setText("Event date:    " + datedb);
+//                    t5.setText("Occasion:      " + getoccasion);
+//                    t4.setText("Event:           " + getevent);
+//                    t2.setText("Category:              " + categorydb);
+//                    dbeventinfo.keepSynced(true);
+//                                        SharedPreferences sharedPreferencese = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+//                    SharedPreferences.Editor editor = sharedPreferencese.edit();
+//
+//// Save data
+////                    editor.putString("Name", name1);
+////                    editor.putString("Email", receivedText);
+//
+//                    editor.putString("date", datedb);
+//                    editor.putString("occasion", getoccasion);
+//                    editor.putString("event", getevent);
+//                    editor.putString("category", categorydb);
+//                    editor.apply();
+//
+//                    // Use the retrieved data as needed
+////                    Log.d("FirebaseData", "Name: " + name1);
+////                    Log.d("FirebaseData", "Email: " + receivedText);
+////                    Log.d("FirebaseData", "Phone Number: " + phoneNumber);
+//
+//                    // Set data to your TextViews or other UI elements if required
+//                    // nameTextView.setText(name);
+//                    // phoneTextView.setText(phoneNumber);
+//                }
+//                        SharedPreferences sharedPreferencese = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+////
+////// Retrieve data
+////
+////
+//        String date = sharedPreferencese.getString("date", "");
+//        String occas = sharedPreferencese.getString("occasion", "");
+//        String eve = sharedPreferencese.getString("event", "");
+//        String catg = sharedPreferencese.getString("category", "");
+//        t3.setText("Event date:    " + date);
+//        t5.setText("Occasion:      " + occas);
+//        t4.setText("Event:           " + eve);
+//        t2.setText("Category:              " + catg);
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
 
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
-                        // Get the values for each user using userSnapshot instead of dataSnapshot
-                        String number = dataSnapshot.child("number").getValue(String.class);
-                        String getcity = dataSnapshot.child("city").getValue(String.class);
-                        String getdate = dataSnapshot.child("date").getValue(String.class);
-                        String getevent = dataSnapshot.child("event").getValue(String.class);
-                        String getoccasion = dataSnapshot.child("occasion").getValue(String.class);
-                        Log.d("FirebaseData", "User Name: " + number);
-                        Log.d("FirebaseData", "User getcity: " + getcity);
-                        Log.d("FirebaseData", "User getdate: " + getdate);
-                        Log.d("FirebaseData", "User getevent: " + getevent);
-                        Log.d("FirebaseData", "User getoccasion: " + getoccasion);
-                        t1.setText("Number:        " + number);
-                        t2.setText("City:              " + getcity);
-                        t3.setText("Event date:    " + getdate);
-                        t4.setText("Event:           " + getevent);
-                        t5.setText("Occasion:      " + getoccasion);
-                        databaseReference.keepSynced(true);
-                        }
+            query.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                        String name1 = snapshot.child("name").getValue(String.class);
+                        String phoneNumber = snapshot.child("number").getValue(String.class);
+                        String maild = snapshot.child("mail").getValue(String.class);
+//                    name.setText(name1);
+//                    email.setText(maild);
+                        t1.setText("Number:        " + phoneNumber);
+                        finalnamedb = name1;
+                        SharedPreferences sharedPreferencesf = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPreferencesf.edit();
 
+// Save data
+//                    editor.putString("Name", name1);
+//                    editor.putString("Email", receivedText);
 
+                        editor.putString("PhoneNumber", phoneNumber);
+                        editor.apply();
+
+                        // Use the retrieved data as needed
+//                    Log.d("FirebaseData", "Name: " + name1);
+//                    Log.d("FirebaseData", "Email: " + receivedText);
+                        Log.d("FirebaseData", "Phone Number: " + phoneNumber);
+
+                        // Set data to your TextViews or other UI elements if required
+                        // nameTextView.setText(name);
+                        // phoneTextView.setText(phoneNumber);
+                    }
                 }
 
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    // Handle onCancelled event
+                    Log.e("FirebaseData", "Error: " + error.getMessage());
+                }
+            });
+            SharedPreferences sharedPreferencesf = getSharedPreferences("MyPrefs", MODE_PRIVATE);
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(MainActivity17.this, "Error", Toast.LENGTH_SHORT).show();
+// Retrieve data
 
-            }
-        });
+
+            String phoneNumber1 = sharedPreferencesf.getString("PhoneNumber", "");
+            t1.setText("Number:        " + phoneNumber1);
+//       databaseReference.addValueEventListener(new ValueEventListener() {
+//
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
+//                        // Get the values for each user using userSnapshot instead of dataSnapshot
+//                        String number = dataSnapshot.child("number").getValue(String.class);
+////                        String getcity = dataSnapshot.child("city").getValue(String.class);
+////                        String getdate = dataSnapshot.child("date").getValue(String.class);
+////                        String getevent = dataSnapshot.child("event").getValue(String.class);
+////                        String getoccasion = dataSnapshot.child("occasion").getValue(String.class);
+//                        Log.d("FirebaseData", "User Name: " + number);
+////                        Log.d("FirebaseData", "User getcity: " + getcity);
+////                        Log.d("FirebaseData", "User getdate: " + getdate);
+////                        Log.d("FirebaseData", "User getevent: " + getevent);
+////                        Log.d("FirebaseData", "User getoccasion: " + getoccasion);
+//                        t1.setText("Number:        " + number);
+////                        t2.setText("City:              " + getcity);
+////                        t3.setText("Event date:    " + getdate);
+////                        t4.setText("Event:           " + getevent);
+////                        t5.setText("Occasion:      " + getoccasion);
+//                        databaseReference.keepSynced(true);
+//                        }
+//
+//
+//                }
+//
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//                Toast.makeText(MainActivity17.this, "Error", Toast.LENGTH_SHORT).show();
+//
+//            }
+//        });
+            queryeve.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                        String getoccasion = snapshot.child("occasion").getValue(String.class);
+                        String datedb = snapshot.child("Date").getValue(String.class);
+                        String getevent = snapshot.child("event").getValue(String.class);
+                        String categorydb = snapshot.child("Category").getValue(String.class);
+//                    name.setText(name1);
+//                    email.setText(maild);
+                        t3.setText("Event date:    " + datedb);
+                        t5.setText("Occasion:      " + getoccasion);
+                        t4.setText("Event:           " + getevent);
+                        t2.setText("Category:              " + categorydb);
+//                    t1.setText(phoneNumber);
+                        SharedPreferences sharedPreferencese = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPreferencese.edit();
+
+// Save data
+//                    editor.putString("Name", name1);
+//                    editor.putString("Email", receivedText);
+
+                        editor.putString("date", datedb);
+                        editor.putString("occasion", getoccasion);
+                        editor.putString("event", getevent);
+                        editor.putString("category", categorydb);
+                        editor.apply();
+
+                        // Use the retrieved data as needed
+//                    Log.d("FirebaseData", "Name: " + name1);
+//                    Log.d("FirebaseData", "Email: " + receivedText);
+//                    Log.d("FirebaseData", "Phone Number: " + phoneNumber);
+
+                        // Set data to your TextViews or other UI elements if required
+                        // nameTextView.setText(name);
+                        // phoneTextView.setText(phoneNumber);
+
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    // Handle onCancelled event
+                    Log.e("FirebaseData", "Error: " + error.getMessage());
+                }
+            });
+            SharedPreferences sharedPreferencese = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+
+// Retrieve data
+
+
+            String date = sharedPreferencese.getString("date", "");
+            String occas = sharedPreferencese.getString("occasion", "");
+            String eve = sharedPreferencese.getString("event", "");
+            String catg = sharedPreferencese.getString("category", "");
+            t3.setText("Event date:    " + date);
+            t5.setText("Occasion:      " + occas);
+            t4.setText("Event:           " + eve);
+            t2.setText("Category:              " + catg);
+//        }else{
+//            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("UsersInfo");
+//            Query query = databaseReference.orderByChild("number").equalTo(receivedPhone);
+//            DatabaseReference dbeventinfo = FirebaseDatabase.getInstance().getReference("UsersEvents");
+//            Query queryeve = dbeventinfo.orderByChild("number").equalTo(receivedPhone);
+////        dbeventinfo.addValueEventListener(new ValueEventListener() {
+////            @Override
+////            public void onDataChange(@NonNull DataSnapshot snapshot) {
+////                for (DataSnapshot userSnapshot1 : snapshot.getChildren()){
+////                    String getoccasion = snapshot.child("occasion").getValue(String.class);
+////                    String datedb = snapshot.child("Date").getValue(String.class);
+////                    String getevent = snapshot.child("event").getValue(String.class);
+////                    String categorydb = snapshot.child("Category").getValue(String.class);
+////                    t3.setText("Event date:    " + datedb);
+////                    t5.setText("Occasion:      " + getoccasion);
+////                    t4.setText("Event:           " + getevent);
+////                    t2.setText("Category:              " + categorydb);
+////                    dbeventinfo.keepSynced(true);
+////                                        SharedPreferences sharedPreferencese = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+////                    SharedPreferences.Editor editor = sharedPreferencese.edit();
+////
+////// Save data
+//////                    editor.putString("Name", name1);
+//////                    editor.putString("Email", receivedText);
+////
+////                    editor.putString("date", datedb);
+////                    editor.putString("occasion", getoccasion);
+////                    editor.putString("event", getevent);
+////                    editor.putString("category", categorydb);
+////                    editor.apply();
+////
+////                    // Use the retrieved data as needed
+//////                    Log.d("FirebaseData", "Name: " + name1);
+//////                    Log.d("FirebaseData", "Email: " + receivedText);
+//////                    Log.d("FirebaseData", "Phone Number: " + phoneNumber);
+////
+////                    // Set data to your TextViews or other UI elements if required
+////                    // nameTextView.setText(name);
+////                    // phoneTextView.setText(phoneNumber);
+////                }
+////                        SharedPreferences sharedPreferencese = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+//////
+//////// Retrieve data
+//////
+//////
+////        String date = sharedPreferencese.getString("date", "");
+////        String occas = sharedPreferencese.getString("occasion", "");
+////        String eve = sharedPreferencese.getString("event", "");
+////        String catg = sharedPreferencese.getString("category", "");
+////        t3.setText("Event date:    " + date);
+////        t5.setText("Occasion:      " + occas);
+////        t4.setText("Event:           " + eve);
+////        t2.setText("Category:              " + catg);
+////
+////            }
+////
+////            @Override
+////            public void onCancelled(@NonNull DatabaseError error) {
+////
+////            }
+////        });
+//
+//            query.addValueEventListener(new ValueEventListener() {
+//                @Override
+//                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+//                        String name1 = snapshot.child("name").getValue(String.class);
+//                        String phoneNumber = snapshot.child("number").getValue(String.class);
+//                        String maild = snapshot.child("mail").getValue(String.class);
+////                    name.setText(name1);
+////                    email.setText(maild);
+//                        t1.setText("Number:        " + phoneNumber);
+//                        finalnamedb = name1;
+//                        SharedPreferences sharedPreferencesf = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+//                        SharedPreferences.Editor editor = sharedPreferencesf.edit();
+//
+//// Save data
+////                    editor.putString("Name", name1);
+////                    editor.putString("Email", receivedText);
+//
+//                        editor.putString("PhoneNumber", phoneNumber);
+//                        editor.apply();
+//
+//                        // Use the retrieved data as needed
+////                    Log.d("FirebaseData", "Name: " + name1);
+////                    Log.d("FirebaseData", "Email: " + receivedText);
+//                        Log.d("FirebaseData", "Phone Number: " + phoneNumber);
+//
+//                        // Set data to your TextViews or other UI elements if required
+//                        // nameTextView.setText(name);
+//                        // phoneTextView.setText(phoneNumber);
+//                    }
+//                }
+//
+//                @Override
+//                public void onCancelled(@NonNull DatabaseError error) {
+//                    // Handle onCancelled event
+//                    Log.e("FirebaseData", "Error: " + error.getMessage());
+//                }
+//            });
+//            SharedPreferences sharedPreferencesf = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+//
+//// Retrieve data
+//
+//
+//            String phoneNumber1 = sharedPreferencesf.getString("PhoneNumber", "");
+//            t1.setText("Number:        " + phoneNumber1);
+////       databaseReference.addValueEventListener(new ValueEventListener() {
+////
+////            @Override
+////            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+////                for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
+////                        // Get the values for each user using userSnapshot instead of dataSnapshot
+////                        String number = dataSnapshot.child("number").getValue(String.class);
+//////                        String getcity = dataSnapshot.child("city").getValue(String.class);
+//////                        String getdate = dataSnapshot.child("date").getValue(String.class);
+//////                        String getevent = dataSnapshot.child("event").getValue(String.class);
+//////                        String getoccasion = dataSnapshot.child("occasion").getValue(String.class);
+////                        Log.d("FirebaseData", "User Name: " + number);
+//////                        Log.d("FirebaseData", "User getcity: " + getcity);
+//////                        Log.d("FirebaseData", "User getdate: " + getdate);
+//////                        Log.d("FirebaseData", "User getevent: " + getevent);
+//////                        Log.d("FirebaseData", "User getoccasion: " + getoccasion);
+////                        t1.setText("Number:        " + number);
+//////                        t2.setText("City:              " + getcity);
+//////                        t3.setText("Event date:    " + getdate);
+//////                        t4.setText("Event:           " + getevent);
+//////                        t5.setText("Occasion:      " + getoccasion);
+////                        databaseReference.keepSynced(true);
+////                        }
+////
+////
+////                }
+////
+////
+////            @Override
+////            public void onCancelled(@NonNull DatabaseError error) {
+////                Toast.makeText(MainActivity17.this, "Error", Toast.LENGTH_SHORT).show();
+////
+////            }
+////        });
+//            queryeve.addValueEventListener(new ValueEventListener() {
+//                @Override
+//                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+//                        String getoccasion = snapshot.child("occasion").getValue(String.class);
+//                        String datedb = snapshot.child("Date").getValue(String.class);
+//                        String getevent = snapshot.child("event").getValue(String.class);
+//                        String categorydb = snapshot.child("Category").getValue(String.class);
+////                    name.setText(name1);
+////                    email.setText(maild);
+//                        t3.setText("Event date:    " + datedb);
+//                        t5.setText("Occasion:      " + getoccasion);
+//                        t4.setText("Event:           " + getevent);
+//                        t2.setText("Category:              " + categorydb);
+////                    t1.setText(phoneNumber);
+//                        SharedPreferences sharedPreferencese = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+//                        SharedPreferences.Editor editor = sharedPreferencese.edit();
+//
+//// Save data
+////                    editor.putString("Name", name1);
+////                    editor.putString("Email", receivedText);
+//
+//                        editor.putString("date", datedb);
+//                        editor.putString("occasion", getoccasion);
+//                        editor.putString("event", getevent);
+//                        editor.putString("category", categorydb);
+//                        editor.apply();
+//
+//                        // Use the retrieved data as needed
+////                    Log.d("FirebaseData", "Name: " + name1);
+////                    Log.d("FirebaseData", "Email: " + receivedText);
+////                    Log.d("FirebaseData", "Phone Number: " + phoneNumber);
+//
+//                        // Set data to your TextViews or other UI elements if required
+//                        // nameTextView.setText(name);
+//                        // phoneTextView.setText(phoneNumber);
+//
+//                    }
+//                }
+//
+//                @Override
+//                public void onCancelled(@NonNull DatabaseError error) {
+//                    // Handle onCancelled event
+//                    Log.e("FirebaseData", "Error: " + error.getMessage());
+//                }
+//            });
+//            SharedPreferences sharedPreferencese = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+//
+//// Retrieve data
+//
+//
+//            String date = sharedPreferencese.getString("date", "");
+//            String occas = sharedPreferencese.getString("occasion", "");
+//            String eve = sharedPreferencese.getString("event", "");
+//            String catg = sharedPreferencese.getString("category", "");
+//            t3.setText("Event date:    " + date);
+//            t5.setText("Occasion:      " + occas);
+//            t4.setText("Event:           " + eve);
+//            t2.setText("Category:              " + catg);
+//        }
+        }
+        {
+            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("UsersInfo");
+            Query query = databaseReference.orderByChild("number").equalTo(receivedText);
+            DatabaseReference dbeventinfo = FirebaseDatabase.getInstance().getReference("UsersEvents");
+            Query queryeve = dbeventinfo.orderByChild("number").equalTo(receivedText);
+
+//        dbeventinfo.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                for (DataSnapshot userSnapshot1 : snapshot.getChildren()){
+//                    String getoccasion = snapshot.child("occasion").getValue(String.class);
+//                    String datedb = snapshot.child("Date").getValue(String.class);
+//                    String getevent = snapshot.child("event").getValue(String.class);
+//                    String categorydb = snapshot.child("Category").getValue(String.class);
+//                    t3.setText("Event date:    " + datedb);
+//                    t5.setText("Occasion:      " + getoccasion);
+//                    t4.setText("Event:           " + getevent);
+//                    t2.setText("Category:              " + categorydb);
+//                    dbeventinfo.keepSynced(true);
+//                                        SharedPreferences sharedPreferencese = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+//                    SharedPreferences.Editor editor = sharedPreferencese.edit();
+//
+//// Save data
+////                    editor.putString("Name", name1);
+////                    editor.putString("Email", receivedText);
+//
+//                    editor.putString("date", datedb);
+//                    editor.putString("occasion", getoccasion);
+//                    editor.putString("event", getevent);
+//                    editor.putString("category", categorydb);
+//                    editor.apply();
+//
+//                    // Use the retrieved data as needed
+////                    Log.d("FirebaseData", "Name: " + name1);
+////                    Log.d("FirebaseData", "Email: " + receivedText);
+////                    Log.d("FirebaseData", "Phone Number: " + phoneNumber);
+//
+//                    // Set data to your TextViews or other UI elements if required
+//                    // nameTextView.setText(name);
+//                    // phoneTextView.setText(phoneNumber);
+//                }
+//                        SharedPreferences sharedPreferencese = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+////
+////// Retrieve data
+////
+////
+//        String date = sharedPreferencese.getString("date", "");
+//        String occas = sharedPreferencese.getString("occasion", "");
+//        String eve = sharedPreferencese.getString("event", "");
+//        String catg = sharedPreferencese.getString("category", "");
+//        t3.setText("Event date:    " + date);
+//        t5.setText("Occasion:      " + occas);
+//        t4.setText("Event:           " + eve);
+//        t2.setText("Category:              " + catg);
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
+
+            query.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                        String name1 = snapshot.child("name").getValue(String.class);
+                        String phoneNumber = snapshot.child("number").getValue(String.class);
+                        String maild = snapshot.child("mail").getValue(String.class);
+//                    name.setText(name1);
+//                    email.setText(maild);
+                        t1.setText("Number:        " + phoneNumber);
+                        finalnamedb = name1;
+                        SharedPreferences sharedPreferencesf = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPreferencesf.edit();
+
+// Save data
+//                    editor.putString("Name", name1);
+//                    editor.putString("Email", receivedText);
+
+                        editor.putString("PhoneNumber", phoneNumber);
+                        editor.apply();
+
+                        // Use the retrieved data as needed
+//                    Log.d("FirebaseData", "Name: " + name1);
+//                    Log.d("FirebaseData", "Email: " + receivedText);
+                        Log.d("FirebaseData", "Phone Number: " + phoneNumber);
+
+                        // Set data to your TextViews or other UI elements if required
+                        // nameTextView.setText(name);
+                        // phoneTextView.setText(phoneNumber);
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    // Handle onCancelled event
+                    Log.e("FirebaseData", "Error: " + error.getMessage());
+                }
+            });
+            SharedPreferences sharedPreferencesf = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+
+// Retrieve data
+
+
+            String phoneNumber1 = sharedPreferencesf.getString("PhoneNumber", "");
+            t1.setText("Number:        " + phoneNumber1);
+//       databaseReference.addValueEventListener(new ValueEventListener() {
+//
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
+//                        // Get the values for each user using userSnapshot instead of dataSnapshot
+//                        String number = dataSnapshot.child("number").getValue(String.class);
+////                        String getcity = dataSnapshot.child("city").getValue(String.class);
+////                        String getdate = dataSnapshot.child("date").getValue(String.class);
+////                        String getevent = dataSnapshot.child("event").getValue(String.class);
+////                        String getoccasion = dataSnapshot.child("occasion").getValue(String.class);
+//                        Log.d("FirebaseData", "User Name: " + number);
+////                        Log.d("FirebaseData", "User getcity: " + getcity);
+////                        Log.d("FirebaseData", "User getdate: " + getdate);
+////                        Log.d("FirebaseData", "User getevent: " + getevent);
+////                        Log.d("FirebaseData", "User getoccasion: " + getoccasion);
+//                        t1.setText("Number:        " + number);
+////                        t2.setText("City:              " + getcity);
+////                        t3.setText("Event date:    " + getdate);
+////                        t4.setText("Event:           " + getevent);
+////                        t5.setText("Occasion:      " + getoccasion);
+//                        databaseReference.keepSynced(true);
+//                        }
+//
+//
+//                }
+//
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//                Toast.makeText(MainActivity17.this, "Error", Toast.LENGTH_SHORT).show();
+//
+//            }
+//        });
+            queryeve.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                        String getoccasion = snapshot.child("occasion").getValue(String.class);
+                        String datedb = snapshot.child("Date").getValue(String.class);
+                        String getevent = snapshot.child("event").getValue(String.class);
+                        String categorydb = snapshot.child("Category").getValue(String.class);
+//                    name.setText(name1);
+//                    email.setText(maild);
+                        t3.setText("Event date:    " + datedb);
+                        t5.setText("Occasion:      " + getoccasion);
+                        t4.setText("Event:           " + getevent);
+                        t2.setText("Category:              " + categorydb);
+//                    t1.setText(phoneNumber);
+                        SharedPreferences sharedPreferencese = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPreferencese.edit();
+
+// Save data
+//                    editor.putString("Name", name1);
+//                    editor.putString("Email", receivedText);
+
+                        editor.putString("date", datedb);
+                        editor.putString("occasion", getoccasion);
+                        editor.putString("event", getevent);
+                        editor.putString("category", categorydb);
+                        editor.apply();
+
+                        // Use the retrieved data as needed
+//                    Log.d("FirebaseData", "Name: " + name1);
+//                    Log.d("FirebaseData", "Email: " + receivedText);
+//                    Log.d("FirebaseData", "Phone Number: " + phoneNumber);
+
+                        // Set data to your TextViews or other UI elements if required
+                        // nameTextView.setText(name);
+                        // phoneTextView.setText(phoneNumber);
+
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    // Handle onCancelled event
+                    Log.e("FirebaseData", "Error: " + error.getMessage());
+                }
+            });
+            SharedPreferences sharedPreferencese = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+
+// Retrieve data
+
+
+            String date = sharedPreferencese.getString("date", "");
+            String occas = sharedPreferencese.getString("occasion", "");
+            String eve = sharedPreferencese.getString("event", "");
+            String catg = sharedPreferencese.getString("category", "");
+            t3.setText("Event date:    " + date);
+            t5.setText("Occasion:      " + occas);
+            t4.setText("Event:           " + eve);
+            t2.setText("Category:              " + catg);
+//        }else{
+//            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("UsersInfo");
+//            Query query = databaseReference.orderByChild("number").equalTo(receivedPhone);
+//            DatabaseReference dbeventinfo = FirebaseDatabase.getInstance().getReference("UsersEvents");
+//            Query queryeve = dbeventinfo.orderByChild("number").equalTo(receivedPhone);
+////        dbeventinfo.addValueEventListener(new ValueEventListener() {
+////            @Override
+////            public void onDataChange(@NonNull DataSnapshot snapshot) {
+////                for (DataSnapshot userSnapshot1 : snapshot.getChildren()){
+////                    String getoccasion = snapshot.child("occasion").getValue(String.class);
+////                    String datedb = snapshot.child("Date").getValue(String.class);
+////                    String getevent = snapshot.child("event").getValue(String.class);
+////                    String categorydb = snapshot.child("Category").getValue(String.class);
+////                    t3.setText("Event date:    " + datedb);
+////                    t5.setText("Occasion:      " + getoccasion);
+////                    t4.setText("Event:           " + getevent);
+////                    t2.setText("Category:              " + categorydb);
+////                    dbeventinfo.keepSynced(true);
+////                                        SharedPreferences sharedPreferencese = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+////                    SharedPreferences.Editor editor = sharedPreferencese.edit();
+////
+////// Save data
+//////                    editor.putString("Name", name1);
+//////                    editor.putString("Email", receivedText);
+////
+////                    editor.putString("date", datedb);
+////                    editor.putString("occasion", getoccasion);
+////                    editor.putString("event", getevent);
+////                    editor.putString("category", categorydb);
+////                    editor.apply();
+////
+////                    // Use the retrieved data as needed
+//////                    Log.d("FirebaseData", "Name: " + name1);
+//////                    Log.d("FirebaseData", "Email: " + receivedText);
+//////                    Log.d("FirebaseData", "Phone Number: " + phoneNumber);
+////
+////                    // Set data to your TextViews or other UI elements if required
+////                    // nameTextView.setText(name);
+////                    // phoneTextView.setText(phoneNumber);
+////                }
+////                        SharedPreferences sharedPreferencese = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+//////
+//////// Retrieve data
+//////
+//////
+////        String date = sharedPreferencese.getString("date", "");
+////        String occas = sharedPreferencese.getString("occasion", "");
+////        String eve = sharedPreferencese.getString("event", "");
+////        String catg = sharedPreferencese.getString("category", "");
+////        t3.setText("Event date:    " + date);
+////        t5.setText("Occasion:      " + occas);
+////        t4.setText("Event:           " + eve);
+////        t2.setText("Category:              " + catg);
+////
+////            }
+////
+////            @Override
+////            public void onCancelled(@NonNull DatabaseError error) {
+////
+////            }
+////        });
+//
+//            query.addValueEventListener(new ValueEventListener() {
+//                @Override
+//                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+//                        String name1 = snapshot.child("name").getValue(String.class);
+//                        String phoneNumber = snapshot.child("number").getValue(String.class);
+//                        String maild = snapshot.child("mail").getValue(String.class);
+////                    name.setText(name1);
+////                    email.setText(maild);
+//                        t1.setText("Number:        " + phoneNumber);
+//                        finalnamedb = name1;
+//                        SharedPreferences sharedPreferencesf = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+//                        SharedPreferences.Editor editor = sharedPreferencesf.edit();
+//
+//// Save data
+////                    editor.putString("Name", name1);
+////                    editor.putString("Email", receivedText);
+//
+//                        editor.putString("PhoneNumber", phoneNumber);
+//                        editor.apply();
+//
+//                        // Use the retrieved data as needed
+////                    Log.d("FirebaseData", "Name: " + name1);
+////                    Log.d("FirebaseData", "Email: " + receivedText);
+//                        Log.d("FirebaseData", "Phone Number: " + phoneNumber);
+//
+//                        // Set data to your TextViews or other UI elements if required
+//                        // nameTextView.setText(name);
+//                        // phoneTextView.setText(phoneNumber);
+//                    }
+//                }
+//
+//                @Override
+//                public void onCancelled(@NonNull DatabaseError error) {
+//                    // Handle onCancelled event
+//                    Log.e("FirebaseData", "Error: " + error.getMessage());
+//                }
+//            });
+//            SharedPreferences sharedPreferencesf = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+//
+//// Retrieve data
+//
+//
+//            String phoneNumber1 = sharedPreferencesf.getString("PhoneNumber", "");
+//            t1.setText("Number:        " + phoneNumber1);
+////       databaseReference.addValueEventListener(new ValueEventListener() {
+////
+////            @Override
+////            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+////                for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
+////                        // Get the values for each user using userSnapshot instead of dataSnapshot
+////                        String number = dataSnapshot.child("number").getValue(String.class);
+//////                        String getcity = dataSnapshot.child("city").getValue(String.class);
+//////                        String getdate = dataSnapshot.child("date").getValue(String.class);
+//////                        String getevent = dataSnapshot.child("event").getValue(String.class);
+//////                        String getoccasion = dataSnapshot.child("occasion").getValue(String.class);
+////                        Log.d("FirebaseData", "User Name: " + number);
+//////                        Log.d("FirebaseData", "User getcity: " + getcity);
+//////                        Log.d("FirebaseData", "User getdate: " + getdate);
+//////                        Log.d("FirebaseData", "User getevent: " + getevent);
+//////                        Log.d("FirebaseData", "User getoccasion: " + getoccasion);
+////                        t1.setText("Number:        " + number);
+//////                        t2.setText("City:              " + getcity);
+//////                        t3.setText("Event date:    " + getdate);
+//////                        t4.setText("Event:           " + getevent);
+//////                        t5.setText("Occasion:      " + getoccasion);
+////                        databaseReference.keepSynced(true);
+////                        }
+////
+////
+////                }
+////
+////
+////            @Override
+////            public void onCancelled(@NonNull DatabaseError error) {
+////                Toast.makeText(MainActivity17.this, "Error", Toast.LENGTH_SHORT).show();
+////
+////            }
+////        });
+//            queryeve.addValueEventListener(new ValueEventListener() {
+//                @Override
+//                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+//                        String getoccasion = snapshot.child("occasion").getValue(String.class);
+//                        String datedb = snapshot.child("Date").getValue(String.class);
+//                        String getevent = snapshot.child("event").getValue(String.class);
+//                        String categorydb = snapshot.child("Category").getValue(String.class);
+////                    name.setText(name1);
+////                    email.setText(maild);
+//                        t3.setText("Event date:    " + datedb);
+//                        t5.setText("Occasion:      " + getoccasion);
+//                        t4.setText("Event:           " + getevent);
+//                        t2.setText("Category:              " + categorydb);
+////                    t1.setText(phoneNumber);
+//                        SharedPreferences sharedPreferencese = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+//                        SharedPreferences.Editor editor = sharedPreferencese.edit();
+//
+//// Save data
+////                    editor.putString("Name", name1);
+////                    editor.putString("Email", receivedText);
+//
+//                        editor.putString("date", datedb);
+//                        editor.putString("occasion", getoccasion);
+//                        editor.putString("event", getevent);
+//                        editor.putString("category", categorydb);
+//                        editor.apply();
+//
+//                        // Use the retrieved data as needed
+////                    Log.d("FirebaseData", "Name: " + name1);
+////                    Log.d("FirebaseData", "Email: " + receivedText);
+////                    Log.d("FirebaseData", "Phone Number: " + phoneNumber);
+//
+//                        // Set data to your TextViews or other UI elements if required
+//                        // nameTextView.setText(name);
+//                        // phoneTextView.setText(phoneNumber);
+//
+//                    }
+//                }
+//
+//                @Override
+//                public void onCancelled(@NonNull DatabaseError error) {
+//                    // Handle onCancelled event
+//                    Log.e("FirebaseData", "Error: " + error.getMessage());
+//                }
+//            });
+//            SharedPreferences sharedPreferencese = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+//
+//// Retrieve data
+//
+//
+//            String date = sharedPreferencese.getString("date", "");
+//            String occas = sharedPreferencese.getString("occasion", "");
+//            String eve = sharedPreferencese.getString("event", "");
+//            String catg = sharedPreferencese.getString("category", "");
+//            t3.setText("Event date:    " + date);
+//            t5.setText("Occasion:      " + occas);
+//            t4.setText("Event:           " + eve);
+//            t2.setText("Category:              " + catg);
+//        }
+        }
         }
 
 
