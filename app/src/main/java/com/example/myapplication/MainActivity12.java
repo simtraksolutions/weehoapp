@@ -135,6 +135,7 @@
                     Intent intent = new Intent(MainActivity12.this, MainActivity2.class);
 
                     startActivity(intent);
+                    finish();
                 }
             });
             history.setOnClickListener(new View.OnClickListener() {

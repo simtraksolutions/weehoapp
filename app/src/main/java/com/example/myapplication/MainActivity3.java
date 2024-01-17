@@ -701,35 +701,35 @@
             hashmap.put("Category",categorydb);
             hashmap.put("Performer",performerdb);
 //            Toast.makeText(MainActivity3.this, "Data stored successfully", Toast.LENGTH_SHORT).show();
-//            String stringsendermail = "urvrajsinh.jadeja113724@marwadiuniversity.ac.in";
-//            String stringreceivermail = "jadejaurvrajsinh@gmail.com";
-//            String stringpasswordsendermail = "Bndc@761";
-//            String stringhost = "smtp.gmail.com";
-//            Properties properties = System.getProperties();
-//            properties.put("mail.smtp.host", stringhost);
-//            properties.put("mail.smtp.port", "465");
-//            properties.put("mail.smtp.ssl.enable", "true");
-//            properties.put("mail.smtp.auth", "true");
-//
-//            javax.mail.Session session = Session.getInstance(properties, new Authenticator() {
-//                @Override
-//                protected PasswordAuthentication getPasswordAuthentication() {
-//                    return new PasswordAuthentication(stringsendermail, stringpasswordsendermail);
-//
-//                }
-//            });
-//
-//            try {
-//                MimeMessage mimeMessage = new MimeMessage(session);
-//                mimeMessage.setFrom(new InternetAddress(stringsendermail));
-//                mimeMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(stringreceivermail));
-//                mimeMessage.setSubject("Subject: Successfully booking an event or occasion "+getoccasion);
-//                mimeMessage.setText("Dear "+getname+",\n\n"+" Greetings and thank you for booking an event "+getoccasion+"! We are thrilled to have you join us. \n\n"+"Below are the details of your booking: \n\n"+"=>Occasion: "+getoccasion+"\n"+"=>Date: "+showfinaldatemail+"\n\n"+"If you have any questions or need further assistance, feel free to reach out.\n\n We look forward to seeing you at the event! \n\n Best regards,\n Weeho team");
-//                Transport.send(mimeMessage);
-//                Toast.makeText(MainActivity3.this, "email sended", Toast.LENGTH_SHORT).show();
-//            } catch (MessagingException e) {
-//                throw new RuntimeException(e);
-//            }
+            String stringsendermail = "urvrajsinh.jadeja113724@marwadiuniversity.ac.in";
+            String stringreceivermail = "jadejaurvrajsinh@gmail.com";
+            String stringpasswordsendermail = "Bndc@761";
+            String stringhost = "smtp.gmail.com";
+            Properties properties = System.getProperties();
+            properties.put("mail.smtp.host", stringhost);
+            properties.put("mail.smtp.port", "465");
+            properties.put("mail.smtp.ssl.enable", "true");
+            properties.put("mail.smtp.auth", "true");
+
+            javax.mail.Session session = Session.getInstance(properties, new Authenticator() {
+                @Override
+                protected PasswordAuthentication getPasswordAuthentication() {
+                    return new PasswordAuthentication(stringsendermail, stringpasswordsendermail);
+
+                }
+            });
+
+            try {
+                MimeMessage mimeMessage = new MimeMessage(session);
+                mimeMessage.setFrom(new InternetAddress(stringsendermail));
+                mimeMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(stringreceivermail));
+                mimeMessage.setSubject("Subject: Successfully booking an event or occasion "+getoccasion);
+                mimeMessage.setText("Dear "+getname+",\n\n"+" Greetings and thank you for booking an event "+getoccasion+"! We are thrilled to have you join us. \n\n"+"Below are the details of your booking: \n\n"+"=>Occasion: "+getoccasion+"\n"+"=>Date: "+showfinaldatemail+"\n\n"+"If you have any questions or need further assistance, feel free to reach out.\n\n We look forward to seeing you at the event! \n\n Best regards,\n Weeho team");
+                Transport.send(mimeMessage);
+                Toast.makeText(MainActivity3.this, "email sent", Toast.LENGTH_SHORT).show();
+            } catch (MessagingException e) {
+                throw new RuntimeException(e);
+            }
 
             Drawable drawable = ResourcesCompat.getDrawable(getResources(), R.drawable.notificationorange, null);
             BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
