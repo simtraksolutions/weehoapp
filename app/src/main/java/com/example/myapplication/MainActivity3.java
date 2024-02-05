@@ -6,6 +6,7 @@
     import androidx.appcompat.app.ActionBarDrawerToggle;
     import androidx.appcompat.app.AppCompatActivity;
     import android.annotation.SuppressLint;
+    import android.app.PendingIntent;
     import android.app.TimePickerDialog;
     import androidx.appcompat.app.AppCompatActivity;
     import androidx.core.content.res.ResourcesCompat;
@@ -13,6 +14,7 @@
     import android.app.Notification;
     import android.app.NotificationChannel;
     import android.app.NotificationManager;
+    import android.content.Context;
     import android.graphics.Bitmap;
     import android.graphics.drawable.BitmapDrawable;
     import android.graphics.drawable.Drawable;
@@ -284,7 +286,7 @@
                     R.array.date_selection_options, android.R.layout.simple_spinner_item);
 
             // Specify the layout to use when the list of choices appears
-            adapter123.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            adapter123.setDropDownViewResource(R.layout.my_drop_item);
 
             // Apply the adapter to the spinner
             dateSelectorSpinner.setAdapter(adapter123);
@@ -738,6 +740,16 @@
             NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
             Notification.Builder notification = null;
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                Intent intent = new Intent(this, MainActivity17.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+// Create a PendingIntent for the activity
+                PendingIntent pendingIntent = PendingIntent.getActivity(
+                        this,
+                        0,  // Request code, can be any integer
+                        intent,
+                        PendingIntent.FLAG_UPDATE_CURRENT
+                );
                 notification = new Notification.Builder(MainActivity3.this)
                         .setLargeIcon(largeIcon)
                         .setSmallIcon(R.drawable.notificationorange)

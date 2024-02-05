@@ -109,6 +109,12 @@ EditText name,emailedittext,password,confirmpassword,Phone;
                             .setMessage("Please fill in all the required fields.")
                             .setPositiveButton("OK", null)
                             .show();
+                } else if (password!=confirmpassword) {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity8.this);
+                        builder.setTitle("Incorrect passwords")
+                                .setMessage("Please enter the correct passwords.")
+                                .setPositiveButton("OK", null)
+                                .show();
                 } else if (isValidPhone()==false) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity8.this);
                     builder.setTitle("Phone number")

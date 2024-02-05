@@ -31,14 +31,14 @@
         <item>Not Specific</item>
     </string-array>
     <string-array name="dropcategory">
-        <item>Select an Category of performer</item>
+        <item>Category of performer</item>
         <item>Singer</item>
         <item>Dancer</item>
         <item>Actors</item>
         <item>Comedians</item>
         <item>Magicians</item>
         <item>Musicians</item>
-        <item>hello</item>
+
     </string-array>
     <string-array name="performers">
         <item>Select an Performer</item>

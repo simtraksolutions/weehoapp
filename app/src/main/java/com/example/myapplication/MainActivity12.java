@@ -131,13 +131,15 @@
                     SharedPreferences.Editor editorem = sharedPreferencesem.edit();
 
 // Save data
+
                     editorem.remove("finaldbem");
                     Intent intent = new Intent(MainActivity12.this, MainActivity2.class);
-
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                     finish();
                 }
             });
+
             history.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
